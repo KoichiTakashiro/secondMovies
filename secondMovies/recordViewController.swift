@@ -24,6 +24,10 @@ class recordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //ナビゲーションの再表示
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        
         self.cameraEngine.startup()
         
         let videoLayer : AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer.init(session:self.cameraEngine.captureSession)
