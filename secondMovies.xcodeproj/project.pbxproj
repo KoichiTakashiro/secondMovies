@@ -15,6 +15,15 @@
 		C15EEDC51C7AD67500D21CE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C15EEDC31C7AD67500D21CE9 /* LaunchScreen.storyboard */; };
 		C15EEDD01C7AD67600D21CE9 /* secondMoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EEDCF1C7AD67600D21CE9 /* secondMoviesTests.swift */; };
 		C15EEDDB1C7AD67600D21CE9 /* secondMoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EEDDA1C7AD67600D21CE9 /* secondMoviesUITests.swift */; };
+		C15EEDE91C7AD68A00D21CE9 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C15EEDE81C7AD68A00D21CE9 /* AssetsLibrary.framework */; };
+		C15EEDEB1C7AD69300D21CE9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C15EEDEA1C7AD69300D21CE9 /* AVFoundation.framework */; };
+		C15EEDED1C7AD78600D21CE9 /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EEDEC1C7AD78500D21CE9 /* VideoWriter.swift */; };
+		C15EEDEF1C7AD7C000D21CE9 /* CameraEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EEDEE1C7AD7C000D21CE9 /* CameraEngine.swift */; };
+		C15EEDF11C7AD81800D21CE9 /* recordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EEDF01C7AD81800D21CE9 /* recordViewController.swift */; };
+		C15EEDF31C7AD8E100D21CE9 /* othersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EEDF21C7AD8E100D21CE9 /* othersViewController.swift */; };
+		C15EEDF51C7AD92600D21CE9 /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EEDF41C7AD92600D21CE9 /* detailViewController.swift */; };
+		C15EEDF71C7ADC4C00D21CE9 /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EEDF61C7ADC4C00D21CE9 /* AVPlayerView.swift */; };
+		C15EEDFB1C7AE04700D21CE9 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EEDFA1C7AE04700D21CE9 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +58,15 @@
 		C15EEDD61C7AD67600D21CE9 /* secondMoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = secondMoviesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15EEDDA1C7AD67600D21CE9 /* secondMoviesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondMoviesUITests.swift; sourceTree = "<group>"; };
 		C15EEDDC1C7AD67600D21CE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C15EEDE81C7AD68A00D21CE9 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		C15EEDEA1C7AD69300D21CE9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C15EEDEC1C7AD78500D21CE9 /* VideoWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; };
+		C15EEDEE1C7AD7C000D21CE9 /* CameraEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraEngine.swift; sourceTree = "<group>"; };
+		C15EEDF01C7AD81800D21CE9 /* recordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recordViewController.swift; sourceTree = "<group>"; };
+		C15EEDF21C7AD8E100D21CE9 /* othersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = othersViewController.swift; sourceTree = "<group>"; };
+		C15EEDF41C7AD92600D21CE9 /* detailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
+		C15EEDF61C7ADC4C00D21CE9 /* AVPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerView.swift; sourceTree = "<group>"; };
+		C15EEDFA1C7AE04700D21CE9 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C15EEDEB1C7AD69300D21CE9 /* AVFoundation.framework in Frameworks */,
+				C15EEDE91C7AD68A00D21CE9 /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +99,8 @@
 		C15EEDAB1C7AD67500D21CE9 = {
 			isa = PBXGroup;
 			children = (
+				C15EEDEA1C7AD69300D21CE9 /* AVFoundation.framework */,
+				C15EEDE81C7AD68A00D21CE9 /* AssetsLibrary.framework */,
 				C15EEDB61C7AD67500D21CE9 /* secondMovies */,
 				C15EEDCE1C7AD67600D21CE9 /* secondMoviesTests */,
 				C15EEDD91C7AD67600D21CE9 /* secondMoviesUITests */,
@@ -106,6 +128,13 @@
 				C15EEDC31C7AD67500D21CE9 /* LaunchScreen.storyboard */,
 				C15EEDC61C7AD67500D21CE9 /* Info.plist */,
 				C15EEDBE1C7AD67500D21CE9 /* secondMovies.xcdatamodeld */,
+				C15EEDEC1C7AD78500D21CE9 /* VideoWriter.swift */,
+				C15EEDEE1C7AD7C000D21CE9 /* CameraEngine.swift */,
+				C15EEDF01C7AD81800D21CE9 /* recordViewController.swift */,
+				C15EEDF21C7AD8E100D21CE9 /* othersViewController.swift */,
+				C15EEDF41C7AD92600D21CE9 /* detailViewController.swift */,
+				C15EEDF61C7ADC4C00D21CE9 /* AVPlayerView.swift */,
+				C15EEDFA1C7AE04700D21CE9 /* Logger.swift */,
 			);
 			path = secondMovies;
 			sourceTree = "<group>";
@@ -262,9 +291,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C15EEDED1C7AD78600D21CE9 /* VideoWriter.swift in Sources */,
 				C15EEDBA1C7AD67500D21CE9 /* ViewController.swift in Sources */,
+				C15EEDEF1C7AD7C000D21CE9 /* CameraEngine.swift in Sources */,
 				C15EEDC01C7AD67500D21CE9 /* secondMovies.xcdatamodeld in Sources */,
 				C15EEDB81C7AD67500D21CE9 /* AppDelegate.swift in Sources */,
+				C15EEDFB1C7AE04700D21CE9 /* Logger.swift in Sources */,
+				C15EEDF31C7AD8E100D21CE9 /* othersViewController.swift in Sources */,
+				C15EEDF71C7ADC4C00D21CE9 /* AVPlayerView.swift in Sources */,
+				C15EEDF11C7AD81800D21CE9 /* recordViewController.swift in Sources */,
+				C15EEDF51C7AD92600D21CE9 /* detailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
