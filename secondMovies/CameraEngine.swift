@@ -28,8 +28,8 @@ class CameraEngine : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVC
     var timeOffset = CMTimeMake(0, 0)
     var lastAudioPts: CMTime?
     
-    let lockQueue = dispatch_queue_create("com.takecian.LockQueue", nil)
-    let recordingQueue = dispatch_queue_create("com.takecian.RecordingQueue", DISPATCH_QUEUE_SERIAL)
+    let lockQueue = dispatch_queue_create("com.KoichiTakashiro.LockQueue", nil)
+    let recordingQueue = dispatch_queue_create("com.KoichiTakashiro.RecordingQueue", DISPATCH_QUEUE_SERIAL)
     
     func startup(){
         // video input
