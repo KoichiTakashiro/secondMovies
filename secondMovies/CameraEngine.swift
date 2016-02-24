@@ -128,6 +128,12 @@ class CameraEngine : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVC
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!){
         dispatch_sync(self.lockQueue) {
+            //Orientationの設定
+            if (connection.supportsVideoOrientation){
+                var orientation:AVCaptureVideoOrientation = AVCaptureVideoOrientation.Portrait
+                connection.videoOrientation = orientation
+            }
+            
             if !self.isCapturing || self.isPaused {
                 return
             }

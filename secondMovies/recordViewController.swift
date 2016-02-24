@@ -61,7 +61,7 @@ class recordViewController: UIViewController {
         self.cameraBtn.layer.masksToBounds = true
         self.cameraBtn.setTitle("Go", forState: .Normal)
         self.cameraBtn.layer.cornerRadius = 15.0
-        self.cameraBtn.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-30)
+        self.cameraBtn.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-20)
         self.cameraBtn.addTarget(self, action: "cameraBtnTap:", forControlEvents: .TouchUpInside)
         
         //録画をストップして次に進むボタン
@@ -70,7 +70,7 @@ class recordViewController: UIViewController {
         self.finishBtn.layer.masksToBounds = true
         self.finishBtn.setTitle("Finish", forState: .Normal)
         self.finishBtn.layer.cornerRadius = 0.0
-        self.finishBtn.layer.position = CGPoint(x: self.view.bounds.width/5, y:self.view.bounds.height-30)
+        self.finishBtn.layer.position = CGPoint(x: self.view.bounds.width/4, y:self.view.bounds.height-30)
         self.finishBtn.addTarget(self, action: "finishBtnTap:", forControlEvents: .TouchUpInside)
         
         //Viewにボタンを追加
@@ -98,7 +98,7 @@ class recordViewController: UIViewController {
                 if self.cameraEngine.isPaused {
                     //一時停止後録画再開中がここの処理
                     self.cameraEngine.resume()
-                    self.cameraBtn.setTitle("停止中", forState: .Normal)
+                    self.cameraBtn.setTitle("一時停止", forState: .Normal)
                     self.cameraBtn.backgroundColor = UIColor.redColor()
                     //ユーザーデフォルトのカウント数呼び出し
                     var myDefault = NSUserDefaults.standardUserDefaults()
@@ -133,6 +133,14 @@ class recordViewController: UIViewController {
             timer.invalidate()
         }
         
+        // 遷移するViewを定義する.
+        //let checkViewController: UIViewController = checkViewController()
+        
+        // アニメーションを設定する.
+        //mySecondViewController.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
+        
+        // Viewの移動する.
+        //self.presentViewController(mySecondViewController, animated: true, completion: nil)
     }
     
     func setupTimerLabel(){
