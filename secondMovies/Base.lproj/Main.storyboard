@@ -178,7 +178,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LQm-he-YAn" customClass="AVPlayerView" customModule="secondMovies" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="453"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -203,7 +203,7 @@
         <!--Music-->
         <scene sceneID="T4p-Um-hYH">
             <objects>
-                <viewController id="Zqb-Fh-kFd" sceneMemberID="viewController">
+                <viewController id="Zqb-Fh-kFd" customClass="musicViewController" customModule="secondMovies" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="axv-gf-tmK"/>
                         <viewControllerLayoutGuide type="bottom" id="rYQ-HM-hbn"/>
@@ -214,8 +214,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Music" id="yqY-sc-ZH5">
-                        <barButtonItem key="rightBarButtonItem" title="保存" id="EFi-3Z-FXH">
+                        <barButtonItem key="rightBarButtonItem" title="完成" id="EFi-3Z-FXH">
                             <connections>
+                                <action selector="completeBtnTap:" destination="Zqb-Fh-kFd" id="hVe-IZ-EYN"/>
                                 <segue destination="RfR-KY-nzb" kind="push" id="Uds-r6-hrV"/>
                             </connections>
                         </barButtonItem>
@@ -229,7 +230,7 @@
         <!--シェア-->
         <scene sceneID="iqT-IQ-TxK">
             <objects>
-                <viewController id="RfR-KY-nzb" sceneMemberID="viewController">
+                <viewController id="RfR-KY-nzb" customClass="shareViewController" customModule="secondMovies" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ivm-qj-Upp"/>
                         <viewControllerLayoutGuide type="bottom" id="C9a-QU-n6d"/>
@@ -244,6 +245,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCg-Yu-1Vg">
+                                <rect key="frame" x="164" y="319" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="saveBtnTap:" destination="RfR-KY-nzb" eventType="touchUpInside" id="850-Zb-mPn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

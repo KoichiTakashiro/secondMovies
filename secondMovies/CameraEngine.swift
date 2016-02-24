@@ -95,17 +95,22 @@ class CameraEngine : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVC
                     self.videoWriter!.finish { () -> Void in
                         Logger.log("Recording finished.")
                         self.videoWriter = nil
-                        let assetsLib = ALAssetsLibrary()
-                        assetsLib.writeVideoAtPathToSavedPhotosAlbum(self.filePathUrl(), completionBlock: {
-                            (nsurl, error) -> Void in
-                            Logger.log("Transfer video to library finished.")
-                            self.fileIndex++
-                        })
                     }
                 })
             }
         }
     }
+    
+    func save(){
+        let assetsLib = ALAssetsLibrary()
+        assetsLib.writeVideoAtPathToSavedPhotosAlbum(self.filePathUrl(), completionBlock: {
+            (nsurl, error) -> Void in
+            Logger.log("Transfer video to library finished.")
+            self.fileIndex++
+            print("カメラロールに保存")
+        })
+    }
+
     
     func pause(){
         dispatch_sync(self.lockQueue) {

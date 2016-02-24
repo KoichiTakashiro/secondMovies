@@ -20,9 +20,9 @@ class VideoWriter : NSObject{
         
         let videoOutputSettings: Dictionary<String, AnyObject> = [
             AVVideoCodecKey : AVVideoCodecH264,
-            AVVideoWidthKey : width,
-            AVVideoHeightKey : height
-        ];
+            //ここのwidthとheightが逆になるとおかしくなる
+            AVVideoWidthKey : height,
+            AVVideoHeightKey : width        ];
         self.videoInput = AVAssetWriterInput(mediaType: AVMediaTypeVideo, outputSettings: videoOutputSettings)
         self.videoInput.expectsMediaDataInRealTime = true
         self.fileWriter.addInput(self.videoInput)
