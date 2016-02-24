@@ -24,6 +24,7 @@ class musicViewController: UIViewController {
     }
     
     @IBAction func completeBtnTap(sender: UIBarButtonItem) {
+        //これは機能していいない
         cameraEngine.save()
         print("保存ボタン押した")
     }
