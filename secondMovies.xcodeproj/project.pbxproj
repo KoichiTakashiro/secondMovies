@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1323AFA1C7D5B0300628A7E /* checkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1323AF91C7D5B0300628A7E /* checkViewController.swift */; };
 		C15EEDB81C7AD67500D21CE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EEDB71C7AD67500D21CE9 /* AppDelegate.swift */; };
 		C15EEDBA1C7AD67500D21CE9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EEDB91C7AD67500D21CE9 /* ViewController.swift */; };
 		C15EEDBD1C7AD67500D21CE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C15EEDBB1C7AD67500D21CE9 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C1323AF91C7D5B0300628A7E /* checkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = checkViewController.swift; sourceTree = "<group>"; };
 		C15EEDB41C7AD67500D21CE9 /* secondMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = secondMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15EEDB71C7AD67500D21CE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C15EEDB91C7AD67500D21CE9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				C15EEDF41C7AD92600D21CE9 /* detailViewController.swift */,
 				C15EEDF61C7ADC4C00D21CE9 /* AVPlayerView.swift */,
 				C15EEDFA1C7AE04700D21CE9 /* Logger.swift */,
+				C1323AF91C7D5B0300628A7E /* checkViewController.swift */,
 			);
 			path = secondMovies;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C15EEDED1C7AD78600D21CE9 /* VideoWriter.swift in Sources */,
+				C1323AFA1C7D5B0300628A7E /* checkViewController.swift in Sources */,
 				C15EEDBA1C7AD67500D21CE9 /* ViewController.swift in Sources */,
 				C15EEDEF1C7AD7C000D21CE9 /* CameraEngine.swift in Sources */,
 				C15EEDC01C7AD67500D21CE9 /* secondMovies.xcdatamodeld in Sources */,
@@ -525,6 +529,7 @@
 				C15EEDE11C7AD67600D21CE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C15EEDE21C7AD67600D21CE9 /* Build configuration list for PBXNativeTarget "secondMoviesTests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +538,7 @@
 				C15EEDE41C7AD67600D21CE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C15EEDE51C7AD67600D21CE9 /* Build configuration list for PBXNativeTarget "secondMoviesUITests" */ = {
 			isa = XCConfigurationList;
@@ -541,6 +547,7 @@
 				C15EEDE71C7AD67600D21CE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
