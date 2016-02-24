@@ -10,8 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var othersBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        othersBtn.setImage(UIImage(named: "shrimp"), forState: UIControlState.Normal)
     }
     
     override func viewWillAppear(animated: Bool) {

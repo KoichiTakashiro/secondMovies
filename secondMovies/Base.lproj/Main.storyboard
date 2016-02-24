@@ -17,20 +17,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkA-Yz-qDq">
-                                <rect key="frame" x="165" y="77" width="45" height="30"/>
-                                <state key="normal" title="その他"/>
-                                <connections>
-                                    <segue destination="ZWN-9c-gDv" kind="push" id="Lzz-jS-tvi"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHw-YR-7ov">
-                                <rect key="frame" x="75" y="510" width="30" height="30"/>
-                                <state key="normal" title="作成"/>
-                                <connections>
-                                    <segue destination="TQ4-B1-KOw" kind="push" id="Wyl-eD-E5y"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r1O-KV-EBR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkA-Yz-qDq">
+                                        <rect key="frame" x="147" y="159" width="80" height="96"/>
+                                        <state key="normal" title="その他" image="shrimp">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="ZWN-9c-gDv" kind="push" id="Lzz-jS-tvi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHw-YR-7ov">
+                                        <rect key="frame" x="133" y="413" width="109" height="104"/>
+                                        <state key="normal" title="作成" image="video"/>
+                                        <connections>
+                                            <segue destination="TQ4-B1-KOw" kind="push" id="Wyl-eD-E5y"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90196078430000004" green="0.46666666670000001" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekT-Cb-WPh">
                                 <rect key="frame" x="276" y="510" width="30" height="30"/>
                                 <state key="normal" title="作品"/>
@@ -40,6 +48,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="yxw-7D-EFB"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="othersBtn" destination="SkA-Yz-qDq" id="iSv-bB-9h5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -281,4 +292,8 @@
             <point key="canvasLocation" x="1048" y="383"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="shrimp" width="64" height="64"/>
+        <image name="video" width="256" height="256"/>
+    </resources>
 </document>

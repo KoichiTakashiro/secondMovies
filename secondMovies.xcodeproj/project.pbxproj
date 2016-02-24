@@ -102,6 +102,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C152C4751C7DD5E8003DF1B7 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = assets;
+			sourceTree = "<group>";
+		};
 		C15EEDAB1C7AD67500D21CE9 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +134,7 @@
 		C15EEDB61C7AD67500D21CE9 /* secondMovies */ = {
 			isa = PBXGroup;
 			children = (
+				C152C4751C7DD5E8003DF1B7 /* assets */,
 				C15EEDB71C7AD67500D21CE9 /* AppDelegate.swift */,
 				C15EEDB91C7AD67500D21CE9 /* ViewController.swift */,
 				C15EEDBB1C7AD67500D21CE9 /* Main.storyboard */,
