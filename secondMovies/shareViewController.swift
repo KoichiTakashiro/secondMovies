@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Social
 
 class shareViewController: UIViewController {
     
     let cameraEngine = CameraEngine()
+    var myComposeView : SLComposeViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +29,37 @@ class shareViewController: UIViewController {
         cameraEngine.save()
         print("shareページで保存")
     }
+    
+    
+    @IBAction func twitterBtnTap(sender: UIButton) {
+        // SLComposeViewControllerのインスタンス化.
+        // ServiceTypeをTwitterに指定.
+        myComposeView = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+        
+        // 投稿するテキストを指定.
+        myComposeView.setInitialText("ショートムービー作ったよ")
+        
+        // 投稿する画像を指定.
+        myComposeView.addImage(UIImage(named: "oouchi.jpg"))
+        
+        // myComposeViewの画面遷移.
+        self.presentViewController(myComposeView, animated: true, completion: nil)
+    }
 
+    @IBAction func FBBtnTap(sender: UIButton) {
+        // ServiceTypeをFacebookに指定.
+        myComposeView = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+        
+        // 投稿するテキストを指定.
+        myComposeView.setInitialText("I Made a Short Movie")
+        
+        // 投稿する画像を指定.
+//        myComposeView.addImage(UIImage(named: "sample1.jpg"))
+        //myComposeView.add
+        
+        // myComposeViewの画面遷移.
+        self.presentViewController(myComposeView, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

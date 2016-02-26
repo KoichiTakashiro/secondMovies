@@ -9,11 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let cameraEngine = CameraEngine()
 
     @IBOutlet weak var othersBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        othersBtn.setImage(UIImage(named: "shrimp"), forState: UIControlState.Normal)
+        //othersBtn.setImage(UIImage(named: "shrimp"), forState: UIControlState.Normal)
+        cameraEngine.startup()
+        
     }
     
     override func viewWillAppear(animated: Bool) {

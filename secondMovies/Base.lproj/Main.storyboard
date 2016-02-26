@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkA-Yz-qDq">
-                                        <rect key="frame" x="147" y="159" width="80" height="96"/>
+                                        <rect key="frame" x="147" y="159" width="119" height="120"/>
                                         <state key="normal" title="その他" image="shrimp">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </state>
@@ -39,10 +39,6 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.46666666670000001" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekT-Cb-WPh">
-                                <rect key="frame" x="276" y="510" width="30" height="30"/>
-                                <state key="normal" title="作品"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -257,10 +253,24 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCg-Yu-1Vg">
-                                <rect key="frame" x="164" y="319" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="295" y="104" width="30" height="30"/>
+                                <state key="normal" title="保存"/>
                                 <connections>
                                     <action selector="saveBtnTap:" destination="RfR-KY-nzb" eventType="touchUpInside" id="850-Zb-mPn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lg0-HJ-0gk">
+                                <rect key="frame" x="163" y="223" width="48" height="30"/>
+                                <state key="normal" title="Twitter"/>
+                                <connections>
+                                    <action selector="twitterBtnTap:" destination="RfR-KY-nzb" eventType="touchUpInside" id="p31-Hj-gLd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0OX-hY-NQj">
+                                <rect key="frame" x="153" y="277" width="68" height="30"/>
+                                <state key="normal" title="FaceBook"/>
+                                <connections>
+                                    <action selector="FBBtnTap:" destination="RfR-KY-nzb" eventType="touchUpInside" id="nrx-I7-qCO"/>
                                 </connections>
                             </button>
                         </subviews>

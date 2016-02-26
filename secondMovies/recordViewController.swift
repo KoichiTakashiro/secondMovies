@@ -12,6 +12,7 @@ import AVFoundation
 class recordViewController: UIViewController {
 
     var startButton, stopButton, pauseResumeButton, mergeButton: UIButton!
+    var recordLabel: UILabel!
     var isRecording = false
     let cameraEngine = CameraEngine()
 
@@ -61,8 +62,10 @@ class recordViewController: UIViewController {
         self.cameraBtn.layer.masksToBounds = true
         self.cameraBtn.setTitle("Go", forState: .Normal)
         self.cameraBtn.layer.cornerRadius = 15.0
-        self.cameraBtn.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-20)
+        self.cameraBtn.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-40)
         self.cameraBtn.addTarget(self, action: "cameraBtnTap:", forControlEvents: .TouchUpInside)
+        let image = UIImage(named: "record")! as UIImage
+        self.cameraBtn.setImage(image, forState: .Normal)
         
         //録画をストップして次に進むボタン
         self.finishBtn = UIButton(frame: CGRectMake(0,0,70,70))
@@ -73,9 +76,23 @@ class recordViewController: UIViewController {
         self.finishBtn.layer.position = CGPoint(x: self.view.bounds.width/4, y:self.view.bounds.height-30)
         self.finishBtn.addTarget(self, action: "finishBtnTap:", forControlEvents: .TouchUpInside)
         
+        
         //Viewにボタンを追加
         self.view.addSubview(self.cameraBtn)
         self.view.addSubview(self.finishBtn)
+    }
+    
+    func setupRecordLabel() {
+        //録画中ラベルの表示
+        self.recordLabel = UILabel(frame: CGRectMake(0,0,200,80))
+        self.recordLabel.text = "● 録画中"
+        self.recordLabel.backgroundColor = UIColor.blackColor()
+        self.recordLabel.textColor = UIColor.redColor()
+        self.recordLabel.font = UIFont.systemFontOfSize(30)
+        //self.recordLabel.frame = CGRectMake(0,0,300,100)
+        self.recordLabel.layer.position = CGPoint(x: self.view.bounds.width/3, y:100)
+        self.view.addSubview(self.recordLabel)
+
     }
     
     //カメラの撮影ボタンの挙動
@@ -91,6 +108,7 @@ class recordViewController: UIViewController {
                 var myDefault = NSUserDefaults.standardUserDefaults()
                 cnt = myDefault.floatForKey("defaultCnt")
                 timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+                self.setupRecordLabel()
                 print("1")
             }
         }else if cameraStatus == "recording"{
@@ -162,8 +180,12 @@ class recordViewController: UIViewController {
     
     //timerカウント関数
     func update() {
-        timerLabel.text = String(cnt)
-        cnt++
+        if cnt == 201 {
+            cameraEngine.pause()
+        } else {
+            timerLabel.text = String(cnt)
+            cnt++
+        }
     }
     
     func changeButtonColor(target: UIButton, color: UIColor){
