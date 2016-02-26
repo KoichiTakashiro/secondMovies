@@ -191,13 +191,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="プレビュー" id="Pu3-Y6-uDH">
-                        <barButtonItem key="rightBarButtonItem" title="次へ" id="ERX-90-mF1">
-                            <connections>
-                                <segue destination="Zqb-Fh-kFd" kind="push" id="d78-Ij-NX3"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="プレビュー" id="Pu3-Y6-uDH"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="videoPlayerView" destination="LQm-he-YAn" id="zHT-VU-j8G"/>
@@ -207,37 +201,10 @@
             </objects>
             <point key="canvasLocation" x="2767.5" y="388.5"/>
         </scene>
-        <!--Music-->
-        <scene sceneID="T4p-Um-hYH">
-            <objects>
-                <viewController id="Zqb-Fh-kFd" customClass="musicViewController" customModule="secondMovies" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="axv-gf-tmK"/>
-                        <viewControllerLayoutGuide type="bottom" id="rYQ-HM-hbn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kFl-wn-uPO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Music" id="yqY-sc-ZH5">
-                        <barButtonItem key="rightBarButtonItem" title="完成" id="EFi-3Z-FXH">
-                            <connections>
-                                <action selector="completeBtnTap:" destination="Zqb-Fh-kFd" id="hVe-IZ-EYN"/>
-                                <segue destination="RfR-KY-nzb" kind="push" id="Uds-r6-hrV"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PZY-pz-VMU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3268.5" y="388.5"/>
-        </scene>
         <!--シェア-->
         <scene sceneID="iqT-IQ-TxK">
             <objects>
-                <viewController id="RfR-KY-nzb" customClass="shareViewController" customModule="secondMovies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="shareViewController" id="RfR-KY-nzb" customClass="shareViewController" customModule="secondMovies" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ivm-qj-Upp"/>
                         <viewControllerLayoutGuide type="bottom" id="C9a-QU-n6d"/>
@@ -281,7 +248,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLI-i0-TzW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3720.5" y="388.5"/>
+            <point key="canvasLocation" x="3278.5" y="388.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lsc-YS-sTZ">

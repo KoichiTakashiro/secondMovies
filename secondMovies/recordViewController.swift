@@ -58,10 +58,10 @@ class recordViewController: UIViewController {
         
         //カメラ撮影ボタン
         self.cameraBtn = UIButton(frame: CGRectMake(0,0,70,70))
-        self.cameraBtn.backgroundColor = UIColor.greenColor()
+        //self.cameraBtn.backgroundColor = UIColor.greenColor()
         self.cameraBtn.layer.masksToBounds = true
-        self.cameraBtn.setTitle("Go", forState: .Normal)
-        self.cameraBtn.layer.cornerRadius = 15.0
+        //self.cameraBtn.setTitle("Go", forState: .Normal)
+        //self.cameraBtn.layer.cornerRadius = 15.0
         self.cameraBtn.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-40)
         self.cameraBtn.addTarget(self, action: "cameraBtnTap:", forControlEvents: .TouchUpInside)
         let image = UIImage(named: "record")! as UIImage
@@ -69,10 +69,10 @@ class recordViewController: UIViewController {
         
         //録画をストップして次に進むボタン
         self.finishBtn = UIButton(frame: CGRectMake(0,0,70,70))
-        self.finishBtn.backgroundColor = UIColor.blueColor()
+        //self.finishBtn.backgroundColor = UIColor.blueColor()
         self.finishBtn.layer.masksToBounds = true
-        self.finishBtn.setTitle("Finish", forState: .Normal)
-        self.finishBtn.layer.cornerRadius = 0.0
+        //self.finishBtn.setTitle("Finish", forState: .Normal)
+        //self.finishBtn.layer.cornerRadius = 0.0
         self.finishBtn.layer.position = CGPoint(x: self.view.bounds.width/4, y:self.view.bounds.height-30)
         self.finishBtn.addTarget(self, action: "finishBtnTap:", forControlEvents: .TouchUpInside)
         
@@ -98,17 +98,19 @@ class recordViewController: UIViewController {
     //カメラの撮影ボタンの挙動
     func cameraBtnTap(sender:UIButton){
         if cameraStatus == "readyToStart"{
+            //撮影スタート時の挙動
             if !self.cameraEngine.isCapturing {
                 self.cameraEngine.start()
                 self.cameraBtn.setTitle("Stop", forState: .Normal)
-                self.changeButtonColor(self
-                    .cameraBtn, color: UIColor.redColor())
+                //self.changeButtonColor(self.cameraBtn, color: UIColor.redColor())
                 cameraStatus = "recording"
                 //撮影スタート時にカウント開始
                 var myDefault = NSUserDefaults.standardUserDefaults()
                 cnt = myDefault.floatForKey("defaultCnt")
                 timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
                 self.setupRecordLabel()
+                let image = UIImage(named: "stop")! as UIImage
+                self.cameraBtn.setImage(image, forState: .Normal)
                 print("1")
             }
         }else if cameraStatus == "recording"{
@@ -122,6 +124,8 @@ class recordViewController: UIViewController {
                     var myDefault = NSUserDefaults.standardUserDefaults()
                     cnt = myDefault.floatForKey("defaultCnt")
                     timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+                    let image = UIImage(named: "stop")! as UIImage
+                    self.cameraBtn.setImage(image, forState: .Normal)
                     print("2")
                 }else{
                     //一時停止した時にここの処理
@@ -133,6 +137,10 @@ class recordViewController: UIViewController {
                     myDefault.setFloat(cnt, forKey: "defaultCnt")
                     myDefault.synchronize()
                     timer.invalidate()
+                    let image = UIImage(named: "record")! as UIImage
+                    self.cameraBtn.setImage(image, forState: .Normal)
+                    self.recordLabel = UILabel(frame: CGRectMake(0,0,0,0))
+                    
                     print("3")
                 }
             }
@@ -149,6 +157,9 @@ class recordViewController: UIViewController {
             myDefault.setFloat(cnt, forKey: "defaultCnt")
             myDefault.synchronize()
             timer.invalidate()
+            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
+            self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+
         }
         
         // 遷移するViewを定義する.
