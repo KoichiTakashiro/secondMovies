@@ -126,6 +126,8 @@ class recordViewController: UIViewController {
                     timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
                     let image = UIImage(named: "stop")! as UIImage
                     self.cameraBtn.setImage(image, forState: .Normal)
+                    self.recordLabel.backgroundColor = UIColor.blackColor()
+                    self.recordLabel.textColor = UIColor.redColor()
                     print("2")
                 }else{
                     //一時停止した時にここの処理
@@ -139,7 +141,8 @@ class recordViewController: UIViewController {
                     timer.invalidate()
                     let image = UIImage(named: "record")! as UIImage
                     self.cameraBtn.setImage(image, forState: .Normal)
-                    self.recordLabel = UILabel(frame: CGRectMake(0,0,0,0))
+                    self.recordLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+                    self.recordLabel.textColor = UIColor.blackColor()
                     
                     print("3")
                 }
