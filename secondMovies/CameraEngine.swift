@@ -131,6 +131,8 @@ class CameraEngine : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVC
         }
     }
     
+    //いつ呼び出されるのか
+    //start(), pause(), resume()呼び出し時に実行されるのは確認済み
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!){
         dispatch_sync(self.lockQueue) {
             //Orientationの設定
@@ -139,16 +141,19 @@ class CameraEngine : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVC
                 connection.videoOrientation = orientation
             }
             
-            if !self.isCapturing || self.isPaused {
+            if !self.isCapturing || self.isPaused {// 録画開始していない、ポーズ中の場合
                 return
             }
             
+            //ここ以下で保存するための処理
             let isVideo = captureOutput is AVCaptureVideoDataOutput
             
             if self.videoWriter == nil && !isVideo {
                 let fileManager = NSFileManager()
+                //ファイルパスの存在を確認
                 if fileManager.fileExistsAtPath(self.filePath()) {
                     do {
+                        //ファイルもしくはディレクトリの削除
                         try fileManager.removeItemAtPath(self.filePath())
                     } catch _ {
                     }
@@ -160,7 +165,8 @@ class CameraEngine : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVC
                 Logger.log("setup video writer")
                 self.videoWriter = VideoWriter(
                     fileUrl: self.filePathUrl(),
-                    height: self.height!, width: self.width!,
+                    height: self.height!,
+                    width: self.width!,
                     channels: Int(asbd.memory.mChannelsPerFrame),
                     samples: asbd.memory.mSampleRate
                 )

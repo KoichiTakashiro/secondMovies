@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //othersBtn.setImage(UIImage(named: "shrimp"), forState: UIControlState.Normal)
-        cameraEngine.startup()
+        //cameraEngine.startup()
         
     }
     

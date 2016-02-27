@@ -69,9 +69,9 @@ class recordViewController: UIViewController {
         
         //録画をストップして次に進むボタン
         self.finishBtn = UIButton(frame: CGRectMake(0,0,70,70))
-        //self.finishBtn.backgroundColor = UIColor.blueColor()
+        self.finishBtn.backgroundColor = UIColor.blueColor()
         self.finishBtn.layer.masksToBounds = true
-        //self.finishBtn.setTitle("Finish", forState: .Normal)
+        self.finishBtn.setTitle("Finish", forState: .Normal)
         //self.finishBtn.layer.cornerRadius = 0.0
         self.finishBtn.layer.position = CGPoint(x: self.view.bounds.width/4, y:self.view.bounds.height-30)
         self.finishBtn.addTarget(self, action: "finishBtnTap:", forControlEvents: .TouchUpInside)
@@ -196,6 +196,7 @@ class recordViewController: UIViewController {
     func update() {
         if cnt == 201 {
             cameraEngine.pause()
+            cnt == 0
         } else {
             timerLabel.text = String(cnt)
             cnt++
