@@ -104,12 +104,13 @@ class recordViewController: UIViewController {
                 self.cameraEngine.start()
                 self.cameraBtn.setTitle("Stop", forState: .Normal)
                 //self.changeButtonColor(self.cameraBtn, color: UIColor.redColor())
-                cameraStatus = "recording"
+                
                 //撮影スタート時にカウント開始
                 var myDefault = NSUserDefaults.standardUserDefaults()
                 cnt = myDefault.floatForKey("defaultCnt")
                 timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
                 self.setupRecordLabel()
+                cameraStatus = "recording"
                 let image = UIImage(named: "stop")! as UIImage
                 self.cameraBtn.setImage(image, forState: .Normal)
                 print("1")
@@ -209,11 +210,12 @@ class recordViewController: UIViewController {
                 timer.invalidate()
                 var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
                 self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+                print("３０秒撮影済み自動停止")
             }
             
             
         } else {
-            if cnt % 200 == 1  {
+            if cnt % 200 == 1 && self.cameraStatus == "recording" {
                 self.cameraEngine.pause()
                 self.cameraBtn.setTitle("restart", forState: .Normal)
                 self.cameraBtn.backgroundColor = UIColor.greenColor()
