@@ -24,6 +24,7 @@ class recordViewController: UIViewController {
     var timerLabel: UILabel!
     var timer : NSTimer!
     var cnt : Float = 0.00
+    var secCnt : Float = 0.00
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -229,7 +230,9 @@ class recordViewController: UIViewController {
                 print("自動停止")
                 
             } else {
-                timerLabel.text = String(cnt)
+                //秒数に変換チェック必要
+                self.secCnt = cnt / 100
+                timerLabel.text = "\(String(secCnt))秒"
                 cnt++
             }
         }
