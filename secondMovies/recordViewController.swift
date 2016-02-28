@@ -96,13 +96,31 @@ class recordViewController: UIViewController {
 
     }
     
+    func setupTimerLabel(){
+        //timer定義
+        self.timerLabel.frame = CGRectMake(0,0,800,500)
+        self.timerLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 500)
+        self.timerLabel.backgroundColor = UIColor.redColor()
+        self.timerLabel.text = String(cnt)
+        self.timerLabel.font = UIFont.systemFontOfSize(30)
+        self.timerLabel.textColor = UIColor.whiteColor()
+        self.timerLabel.shadowColor = UIColor.blueColor()
+        self.timerLabel.textAlignment = NSTextAlignment.Center
+        self.timerLabel.layer.masksToBounds = true
+        self.timerLabel.layer.cornerRadius = 10.0
+        
+        // Viewにtimerラベルを追加
+        self.view.addSubview(timerLabel)
+    }
+
+    
     //カメラの撮影ボタンの挙動
     func cameraBtnTap(sender:UIButton){
         if cameraStatus == "readyToStart"{
             //撮影スタート時の挙動
             if !self.cameraEngine.isCapturing {
                 self.cameraEngine.start()
-                self.cameraBtn.setTitle("Stop", forState: .Normal)
+//                self.cameraBtn.setTitle("Stop", forState: .Normal)
                 //self.changeButtonColor(self.cameraBtn, color: UIColor.redColor())
                 
                 //撮影スタート時にカウント開始
@@ -134,8 +152,8 @@ class recordViewController: UIViewController {
                 }else{
                     //一時停止した時にここの処理
                     self.cameraEngine.pause()
-                    self.cameraBtn.setTitle("restart", forState: .Normal)
-                    self.cameraBtn.backgroundColor = UIColor.greenColor()
+//                    self.cameraBtn.setTitle("restart", forState: .Normal)
+//                    self.cameraBtn.backgroundColor = UIColor.greenColor()
                     cnt = cnt + 1
                     //ユーザーデフォルトにカウント数書き込み
                     var myDefault = NSUserDefaults.standardUserDefaults()
@@ -179,22 +197,6 @@ class recordViewController: UIViewController {
         //self.presentViewController(mySecondViewController, animated: true, completion: nil)
     }
     
-    func setupTimerLabel(){
-        //timer定義
-        timerLabel.frame = CGRectMake(0,0,800,500)
-        timerLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 500)
-        timerLabel.backgroundColor = UIColor.redColor()
-        timerLabel.text = String(cnt)
-        timerLabel.font = UIFont.systemFontOfSize(15)
-        timerLabel.textColor = UIColor.whiteColor()
-        timerLabel.shadowColor = UIColor.blueColor()
-        timerLabel.textAlignment = NSTextAlignment.Center
-        timerLabel.layer.masksToBounds = true
-        timerLabel.layer.cornerRadius = 10.0
-
-        // Viewにtimerラベルを追加
-        self.view.addSubview(timerLabel)
-    }
     
     //timerカウント関数
     func update() {
