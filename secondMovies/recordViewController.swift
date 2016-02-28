@@ -215,10 +215,10 @@ class recordViewController: UIViewController {
             
             
         } else {
-            if cnt % 200 == 1 && self.cameraStatus == "recording" {
+            if cnt % 200 == 1 && cnt > 1 {
                 self.cameraEngine.pause()
-                self.cameraBtn.setTitle("restart", forState: .Normal)
-                self.cameraBtn.backgroundColor = UIColor.greenColor()
+//                self.cameraBtn.setTitle("restart", forState: .Normal)
+//                self.cameraBtn.backgroundColor = UIColor.greenColor()
                 cnt = cnt + 1
                 //ユーザーデフォルトにカウント数書き込み
                 var myDefault = NSUserDefaults.standardUserDefaults()
