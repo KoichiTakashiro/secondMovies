@@ -76,6 +76,7 @@ class checkViewController: UIViewController {
         // CMTimeに変換する.
         let time : CMTime = CMTimeMakeWithSeconds(interval, Int32(NSEC_PER_SEC))
         
+        //TODO:エラーが出るところ
         // time毎に呼び出される.
         videoPlayer.addPeriodicTimeObserverForInterval(time, queue: nil) { (time) -> Void in
             
