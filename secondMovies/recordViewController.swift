@@ -25,6 +25,9 @@ class recordViewController: UIViewController {
     var timer : NSTimer!
     var cnt : Float = 0.00
     var secCnt : Float = 0.00
+    
+    //スライダーの設置
+    let myGreenSlider = UISlider(frame: CGRectMake(0, 0, 300, 10))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +49,9 @@ class recordViewController: UIViewController {
         
         //タイマー配置
         self.setupTimerLabel()
+        
+        //プログレス設置
+        self.setupSlider()
         
     }
     
@@ -102,15 +108,45 @@ class recordViewController: UIViewController {
         self.timerLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 500)
         self.timerLabel.backgroundColor = UIColor.redColor()
         self.timerLabel.text = String(cnt)
-        self.timerLabel.font = UIFont.systemFontOfSize(30)
+        self.timerLabel.font = UIFont.systemFontOfSize(20)
         self.timerLabel.textColor = UIColor.whiteColor()
         self.timerLabel.shadowColor = UIColor.blueColor()
         self.timerLabel.textAlignment = NSTextAlignment.Center
         self.timerLabel.layer.masksToBounds = true
-        self.timerLabel.layer.cornerRadius = 10.0
+        self.timerLabel.layer.cornerRadius = 0.0
         
         // Viewにtimerラベルを追加
         self.view.addSubview(timerLabel)
+    }
+    
+    func setupSlider() {
+        // Sliderを作成する.
+        
+        myGreenSlider.layer.position = CGPointMake(self.view.frame.midX, 550)
+        //myGreenSlider.backgroundColor = UIColor.whiteColor()
+        myGreenSlider.layer.cornerRadius = 0.0
+        myGreenSlider.layer.shadowOpacity = 0.5
+        myGreenSlider.layer.masksToBounds = false
+        
+        // 最小値と最大値を設定する.
+        myGreenSlider.minimumValue = 0
+        myGreenSlider.maximumValue = 3000
+        
+        
+        // Sliderの現在位置より右のTintカラーを変える.
+        myGreenSlider.maximumTrackTintColor = UIColor.grayColor()
+        
+        // Sliderの現在位置より左のTintカラーを変える.
+        myGreenSlider.minimumTrackTintColor = UIColor.orangeColor()
+        
+        let image = UIImage(named: "record")! as UIImage
+        myGreenSlider.setThumbImage(image, forState: .Normal)
+        
+        //myGreenSlider.addTarget(self, action: "onChangeValueMySlider:", forControlEvents: UIControlEvents.ValueChanged)
+        
+        self.view.addSubview(myGreenSlider)
+        
+        self.view.backgroundColor = UIColor(red: 0, green: CGFloat(myGreenSlider.value), blue: 0, alpha: 1)
     }
 
     
@@ -138,8 +174,8 @@ class recordViewController: UIViewController {
                 if self.cameraEngine.isPaused {
                     //一時停止後録画再開中がここの処理
                     self.cameraEngine.resume()
-                    self.cameraBtn.setTitle("一時停止", forState: .Normal)
-                    self.cameraBtn.backgroundColor = UIColor.redColor()
+                    //self.cameraBtn.setTitle("一時停止", forState: .Normal)
+                    //self.cameraBtn.backgroundColor = UIColor.redColor()
                     //ユーザーデフォルトのカウント数呼び出し
                     var myDefault = NSUserDefaults.standardUserDefaults()
                     cnt = myDefault.floatForKey("defaultCnt")
@@ -237,6 +273,8 @@ class recordViewController: UIViewController {
                 //秒数に変換チェック必要
                 self.secCnt = cnt / 100
                 timerLabel.text = "\(String(secCnt))秒"
+                // Sliderの位置を設定する.
+                self.myGreenSlider.value = self.cnt
                 cnt++
             }
         }
