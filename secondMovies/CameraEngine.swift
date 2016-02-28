@@ -24,6 +24,7 @@ class CameraEngine : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVC
     var isPaused = false
     var isDiscontinue = false
     var fileIndex = 0
+    var isSuccess = false
     
     var timeOffset = CMTimeMake(0, 0)
     var lastAudioPts: CMTime?
@@ -68,6 +69,7 @@ class CameraEngine : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVC
         self.captureSession.addOutput(audioDataOutput)
         
         self.captureSession.startRunning()
+        self.isSuccess = true
     }
     
     func shutdown(){

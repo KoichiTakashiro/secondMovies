@@ -40,14 +40,33 @@ class recordViewController: UIViewController {
         //ナビゲーションの再表示
         navigationController?.setNavigationBarHidden(false, animated: true)
         
-        self.cameraEngine.startup()
-        
         let videoLayer : AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer.init(session:self.cameraEngine.captureSession)
         //videoLayer.frame = CGRectMake(100, 100, 300, 300)
         videoLayer.frame = self.view.bounds
         videoLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
         self.view.layer.addSublayer(videoLayer)
         //self.view.sendSubviewToBack(videoLayer)
+        
+        //ローディングを表示しつつカメラ起動
+        SVProgressHUD.showWithStatus("カメラ準備中")
+        dispatch_async_global {
+            //バックグラウンドスレッド
+            //時間のかかる処理
+            self.cameraEngine.startup()
+
+            //メインスレッド
+            self.dispatch_async_main {
+                if (self.cameraEngine.isSuccess == true) { // 呼び出し結果の確認
+                    SVProgressHUD.showSuccessWithStatus("(`･ω･´)ｼｬｷｰﾝ!")
+                    // 成功時の処理を行う(APIのレスポンスを利用して描画処理など)
+                } else {
+                    SVProgressHUD.showErrorWithStatus("失敗!")
+                    // エラーハンドリング
+                }
+            }
+        }
+        
+        
         
         //ボタンの配置
         self.setupButton()
@@ -63,7 +82,16 @@ class recordViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         var myDefault = NSUserDefaults.standardUserDefaults()
         cnt = myDefault.floatForKey("defaultCnt")
-        timerLabel.text = timerLabel.text
+        timerLabel.text = "\(String(cnt))/30秒"
+    }
+    
+    //ローディング用便利関数
+    func dispatch_async_main(block: () -> ()) {
+        dispatch_async(dispatch_get_main_queue(), block)
+    }
+    
+    func dispatch_async_global(block: () -> ()) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)
     }
     
     func soundPlay() {
