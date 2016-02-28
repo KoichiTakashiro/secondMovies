@@ -24,6 +24,7 @@ class recordViewController: UIViewController {
     var timerLabel: UILabel!
     var timer : NSTimer!
     var cnt : Float = 0.00
+    var secCnt : Float = 0.00
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,6 +135,7 @@ class recordViewController: UIViewController {
                     self.cameraEngine.pause()
                     self.cameraBtn.setTitle("restart", forState: .Normal)
                     self.cameraBtn.backgroundColor = UIColor.greenColor()
+                    cnt = cnt + 1
                     //ユーザーデフォルトにカウント数書き込み
                     var myDefault = NSUserDefaults.standardUserDefaults()
                     myDefault.setFloat(cnt, forKey: "defaultCnt")
@@ -143,6 +145,7 @@ class recordViewController: UIViewController {
                     self.cameraBtn.setImage(image, forState: .Normal)
                     self.recordLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
                     self.recordLabel.textColor = UIColor.blackColor()
+                    
                     
                     print("3")
                 }
@@ -194,12 +197,44 @@ class recordViewController: UIViewController {
     
     //timerカウント関数
     func update() {
-        if cnt == 201 {
-            cameraEngine.pause()
-            cnt == 0
+        if cnt == 3001 {
+            //３０秒到達時に自動的に次へ飛ばす
+            if self.cameraEngine.isCapturing {
+                self.cameraEngine.stop()
+                //ユーザーデフォルトにカウント数書き込み
+                cnt = 0.00
+                var myDefault = NSUserDefaults.standardUserDefaults()
+                myDefault.setFloat(cnt, forKey: "defaultCnt")
+                myDefault.synchronize()
+                timer.invalidate()
+                var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
+                self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+            }
+            
+            
         } else {
-            timerLabel.text = String(cnt)
-            cnt++
+            if cnt % 200 == 1  {
+                self.cameraEngine.pause()
+                self.cameraBtn.setTitle("restart", forState: .Normal)
+                self.cameraBtn.backgroundColor = UIColor.greenColor()
+                cnt = cnt + 1
+                //ユーザーデフォルトにカウント数書き込み
+                var myDefault = NSUserDefaults.standardUserDefaults()
+                myDefault.setFloat(cnt, forKey: "defaultCnt")
+                myDefault.synchronize()
+                timer.invalidate()
+                let image = UIImage(named: "record")! as UIImage
+                self.cameraBtn.setImage(image, forState: .Normal)
+                self.recordLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+                self.recordLabel.textColor = UIColor.blackColor()
+                print("自動停止")
+                
+            } else {
+                //秒数に変換チェック必要
+                self.secCnt = cnt / 100
+                timerLabel.text = "\(String(secCnt))秒"
+                cnt++
+            }
         }
     }
     
