@@ -28,6 +28,11 @@ class recordViewController: UIViewController {
     
     //スライダーの設置
     let myGreenSlider = UISlider(frame: CGRectMake(0, 0, 300, 10))
+    
+    //効果音の準備
+    var musicPlayer:AVAudioPlayer!
+    // 再生するmusicファイルのパスを取得  今回は[music.mp3]
+    let music_data = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("cameraSound", ofType: "mp3")!)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +64,17 @@ class recordViewController: UIViewController {
         var myDefault = NSUserDefaults.standardUserDefaults()
         cnt = myDefault.floatForKey("defaultCnt")
         timerLabel.text = timerLabel.text
+    }
+    
+    func soundPlay() {
+        do {
+                //動作部分
+                musicPlayer = try AVAudioPlayer(contentsOfURL: music_data)
+                musicPlayer.play()
+        }catch let error as NSError {
+            //エラーをキャッチした場合
+            print(error)
+        }
     }
     
     func setupButton(){
@@ -170,6 +186,7 @@ class recordViewController: UIViewController {
                 let image = UIImage(named: "stop")! as UIImage
                 self.cameraBtn.setImage(image, forState: .Normal)
                 print("1")
+                soundPlay()
             }
         }else if cameraStatus == "recording"{
             if self.cameraEngine.isCapturing {
@@ -187,6 +204,7 @@ class recordViewController: UIViewController {
                     self.recordLabel.backgroundColor = UIColor.blackColor()
                     self.recordLabel.textColor = UIColor.redColor()
                     print("2")
+                    soundPlay()
                 }else{
                     //一時停止した時にここの処理
                     self.cameraEngine.pause()
@@ -202,9 +220,8 @@ class recordViewController: UIViewController {
                     self.cameraBtn.setImage(image, forState: .Normal)
                     self.recordLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
                     self.recordLabel.textColor = UIColor.blackColor()
-                    
-                    
                     print("3")
+                    soundPlay()
                 }
             }
         }

@@ -27,6 +27,7 @@
 		C15EEDF51C7AD92600D21CE9 /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EEDF41C7AD92600D21CE9 /* detailViewController.swift */; };
 		C15EEDF71C7ADC4C00D21CE9 /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EEDF61C7ADC4C00D21CE9 /* AVPlayerView.swift */; };
 		C15EEDFB1C7AE04700D21CE9 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EEDFA1C7AE04700D21CE9 /* Logger.swift */; };
+		C17F40271C830F42006897F7 /* cameraSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C17F40261C830F42006897F7 /* cameraSound.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		C15EEDF41C7AD92600D21CE9 /* detailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
 		C15EEDF61C7ADC4C00D21CE9 /* AVPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerView.swift; sourceTree = "<group>"; };
 		C15EEDFA1C7AE04700D21CE9 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		C17F40261C830F42006897F7 /* cameraSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraSound.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				C15EEDF21C7AD8E100D21CE9 /* othersViewController.swift */,
 				C15EEDF41C7AD92600D21CE9 /* detailViewController.swift */,
 				C15EEDF61C7ADC4C00D21CE9 /* AVPlayerView.swift */,
+				C17F40261C830F42006897F7 /* cameraSound.mp3 */,
 				C15EEDFA1C7AE04700D21CE9 /* Logger.swift */,
 				C1323AF91C7D5B0300628A7E /* checkViewController.swift */,
 				C152C4711C7DC551003DF1B7 /* shareViewController.swift */,
@@ -284,6 +287,7 @@
 				C15EEDC51C7AD67500D21CE9 /* LaunchScreen.storyboard in Resources */,
 				C15EEDC21C7AD67500D21CE9 /* Assets.xcassets in Resources */,
 				C15EEDBD1C7AD67500D21CE9 /* Main.storyboard in Resources */,
+				C17F40271C830F42006897F7 /* cameraSound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
