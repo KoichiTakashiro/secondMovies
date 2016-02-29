@@ -13,13 +13,14 @@ class shareViewController: UIViewController {
     
     let cameraEngine = CameraEngine()
     var myComposeView : SLComposeViewController!
+    var topBtn : UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -60,6 +61,7 @@ class shareViewController: UIViewController {
         // myComposeViewの画面遷移.
         self.presentViewController(myComposeView, animated: true, completion: nil)
     }
+    
     /*
     // MARK: - Navigation
 

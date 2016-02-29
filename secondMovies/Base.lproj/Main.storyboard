@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="secondMovies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="secondMovies" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -50,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1806.5" y="382.5"/>
+            <point key="canvasLocation" x="1806.5" y="576.5"/>
         </scene>
         <!--Others View Controller-->
         <scene sceneID="Af6-L0-xLE">
@@ -156,11 +156,12 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="timerLabel" destination="VhP-fu-Oqz" id="Crh-XN-umm"/>
+                        <segue destination="JqB-Xv-qGp" kind="push" id="tcE-UT-rAX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88T-YN-8cc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2310.5" y="388.5"/>
+            <point key="canvasLocation" x="2324.5" y="600.5"/>
         </scene>
         <!--プレビュー-->
         <scene sceneID="70x-li-JuZ">
@@ -185,11 +186,12 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="videoPlayerView" destination="LQm-he-YAn" id="zHT-VU-j8G"/>
+                        <segue destination="RfR-KY-nzb" kind="push" id="Q5c-lE-M6D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SwF-U0-hK1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2767.5" y="388.5"/>
+            <point key="canvasLocation" x="2809.5" y="594.5"/>
         </scene>
         <!--シェア-->
         <scene sceneID="iqT-IQ-TxK">
@@ -230,6 +232,13 @@
                                     <action selector="FBBtnTap:" destination="RfR-KY-nzb" eventType="touchUpInside" id="nrx-I7-qCO"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIN-ka-RM3">
+                                <rect key="frame" x="163" y="339" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="kXr-ZW-Wen" kind="unwind" unwindAction="backWithSegue:" id="ugq-kF-h2d"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90196078430000004" green="0.46666666670000001" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -237,8 +246,9 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLI-i0-TzW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="kXr-ZW-Wen" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3278.5" y="388.5"/>
+            <point key="canvasLocation" x="3314.5" y="600.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lsc-YS-sTZ">

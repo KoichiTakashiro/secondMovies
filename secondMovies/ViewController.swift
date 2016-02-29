@@ -10,7 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let cameraEngine = CameraEngine()
+    let recordController = recordViewController()
+    
+    //let cameraEngine = CameraEngine()
 
     @IBOutlet weak var othersBtn: UIButton!
     override func viewDidLoad() {
@@ -20,8 +22,17 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func backWithSegue(let segue: UIStoryboardSegue) {
+        NSLog("back")
+    }
+    
     override func viewWillAppear(animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
+        //ユーザーデフォルトにカウント数書き込み
+        recordController.cnt = 0.00
+        var myDefault = NSUserDefaults.standardUserDefaults()
+        myDefault.setFloat(recordController.cnt, forKey: "defaultCnt")
+        myDefault.synchronize()
     }
 
     override func didReceiveMemoryWarning() {

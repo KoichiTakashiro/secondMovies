@@ -37,8 +37,13 @@ class recordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        var myDefault = NSUserDefaults.standardUserDefaults()
+        cnt = myDefault.floatForKey("defaultCnt")
+
+        
         //ナビゲーションの再表示
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        //navigationController?.setNavigationBarHidden(false, animated: true)
         
         let videoLayer : AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer.init(session:self.cameraEngine.captureSession)
         //videoLayer.frame = CGRectMake(100, 100, 300, 300)
@@ -80,9 +85,12 @@ class recordViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        var myDefault = NSUserDefaults.standardUserDefaults()
-        cnt = myDefault.floatForKey("defaultCnt")
-        timerLabel.text = "\(String(cnt))/30秒"
+        navigationController?.setNavigationBarHidden(true, animated: true)
+
+//        var myDefault = NSUserDefaults.standardUserDefaults()
+//        cnt = myDefault.floatForKey("defaultCnt")
+//        self.secCnt = cnt / 100
+//        timerLabel.text = "\(String(secCnt))/30秒"
     }
     
     //ローディング用便利関数
@@ -151,7 +159,8 @@ class recordViewController: UIViewController {
         self.timerLabel.frame = CGRectMake(0,0,800,500)
         self.timerLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 500)
         self.timerLabel.backgroundColor = UIColor.grayColor()
-        self.timerLabel.text = "\(String(cnt))/30秒"
+        self.secCnt = cnt / 100
+        self.timerLabel.text = "\(String(secCnt))/30秒"
         self.timerLabel.font = UIFont.systemFontOfSize(20)
         self.timerLabel.textColor = UIColor.whiteColor()
         self.timerLabel.shadowColor = UIColor.blueColor()
@@ -229,8 +238,7 @@ class recordViewController: UIViewController {
                     timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
                     let image = UIImage(named: "stop")! as UIImage
                     self.cameraBtn.setImage(image, forState: .Normal)
-                    self.recordLabel.backgroundColor = UIColor.blackColor()
-                    self.recordLabel.textColor = UIColor.redColor()
+                    setupRecordLabel()
                     print("2")
                     soundPlay()
                 }else{
@@ -248,6 +256,7 @@ class recordViewController: UIViewController {
                     self.cameraBtn.setImage(image, forState: .Normal)
                     self.recordLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
                     self.recordLabel.textColor = UIColor.blackColor()
+                    self.recordLabel.text = "一時停止中"
                     print("3")
                     soundPlay()
                 }
@@ -266,6 +275,7 @@ class recordViewController: UIViewController {
             myDefault.synchronize()
             timer.invalidate()
             var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
+//            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "checkViewController" )
             self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
 
         }
@@ -301,6 +311,7 @@ class recordViewController: UIViewController {
             
         } else {
             if cnt % 200 == 1 && cnt > 1 {
+                //自動的に一時停止
                 self.cameraEngine.pause()
 //                self.cameraBtn.setTitle("restart", forState: .Normal)
 //                self.cameraBtn.backgroundColor = UIColor.greenColor()
@@ -314,6 +325,7 @@ class recordViewController: UIViewController {
                 self.cameraBtn.setImage(image, forState: .Normal)
                 self.recordLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
                 self.recordLabel.textColor = UIColor.blackColor()
+                self.recordLabel.text = "一時停止中"
                 print("自動停止")
                 
             } else {

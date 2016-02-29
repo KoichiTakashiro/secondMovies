@@ -12,7 +12,8 @@ class othersViewController: UIViewController, UITableViewDataSource, UITableView
     
     var menu:[NSDictionary] = [
         ["name":"アプリバージョン","detail":"ご使用中のアプリはバージョン1.0です"],
-        ["name":"利用規約","detail":"特に規約は定めておりません。お客様自身でモラルについてしっかり考えた上でご使用お願い致します。"]
+        ["name":"利用規約","detail":"特に規約は定めておりません。お客様自身でモラルについてしっかり考えた上でご使用お願い致します。"],
+        ["name":"作者の想い","detail":"みなさま。本アプリは気に入っていただけましたでしょうか？私自身まだまだ駆け出しのエンジニアのため、改善の余地はたくさんありますが、我が子のようなものです。"]
     ]
     
     var slectedIndex = -1
@@ -30,7 +31,7 @@ class othersViewController: UIViewController, UITableViewDataSource, UITableView
     
     //行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     
