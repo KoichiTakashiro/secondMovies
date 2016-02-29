@@ -138,7 +138,8 @@ class recordViewController: UIViewController {
         
         //Viewにボタンを追加
         self.view.addSubview(self.cameraBtn)
-        self.view.addSubview(self.finishBtn)
+        //フィニッシュボタンを削除→制限時間まで取り切った場合のみつぎのページにいける
+        //self.view.addSubview(self.finishBtn)
     }
     
     func setupRecordLabel() {
@@ -220,8 +221,9 @@ class recordViewController: UIViewController {
                 timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
                 self.setupRecordLabel()
                 cameraStatus = "recording"
-                let image = UIImage(named: "stop")! as UIImage
-                self.cameraBtn.setImage(image, forState: .Normal)
+                //let image = UIImage(named: "stop")! as UIImage
+                //self.cameraBtn.setImage(image, forState: .Normal)
+                cameraBtn.enabled = false
                 print("1")
                 soundPlay()
             }
@@ -236,8 +238,9 @@ class recordViewController: UIViewController {
                     var myDefault = NSUserDefaults.standardUserDefaults()
                     cnt = myDefault.floatForKey("defaultCnt")
                     timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
-                    let image = UIImage(named: "stop")! as UIImage
-                    self.cameraBtn.setImage(image, forState: .Normal)
+                    //let image = UIImage(named: "stop")! as UIImage
+                    //self.cameraBtn.setImage(image, forState: .Normal)
+                    cameraBtn.enabled = false
                     setupRecordLabel()
                     print("2")
                     soundPlay()
@@ -254,6 +257,7 @@ class recordViewController: UIViewController {
                     timer.invalidate()
                     let image = UIImage(named: "record")! as UIImage
                     self.cameraBtn.setImage(image, forState: .Normal)
+                    cameraBtn.enabled = true
                     self.recordLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
                     self.recordLabel.textColor = UIColor.blackColor()
                     self.recordLabel.text = "一時停止中"
@@ -293,7 +297,8 @@ class recordViewController: UIViewController {
     
     //timerカウント関数
     func update() {
-        if cnt == 3001 {
+        //３０秒制限の場合は3001、一時的に601に設定
+        if cnt == 601 {
             //３０秒到達時に自動的に次へ飛ばす
             if self.cameraEngine.isCapturing {
                 self.cameraEngine.stop()
@@ -305,6 +310,7 @@ class recordViewController: UIViewController {
                 timer.invalidate()
                 var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
                 self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+                soundPlay()
                 print("３０秒撮影済み自動停止")
             }
             
@@ -321,11 +327,13 @@ class recordViewController: UIViewController {
                 myDefault.setFloat(cnt, forKey: "defaultCnt")
                 myDefault.synchronize()
                 timer.invalidate()
-                let image = UIImage(named: "record")! as UIImage
-                self.cameraBtn.setImage(image, forState: .Normal)
+                //let image = UIImage(named: "record")! as UIImage
+                //self.cameraBtn.setImage(image, forState: .Normal)
+                cameraBtn.enabled = true
                 self.recordLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
-                self.recordLabel.textColor = UIColor.blackColor()
+                self.recordLabel.textColor = UIColor.whiteColor()
                 self.recordLabel.text = "一時停止中"
+                soundPlay()
                 print("自動停止")
                 
             } else {
