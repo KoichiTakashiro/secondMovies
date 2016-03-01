@@ -41,6 +41,38 @@
             endingLineNumber = "78"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "secondMovies.checkViewController.viewDidLoad (secondMovies.checkViewController)() -&gt; ()"
+                  moduleName = "secondMovies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/TakashiroKoichi/Desktop/20160125_iOS/secondMovies/secondMovies/checkViewController.swift"
+                  timestampString = "478541658.096038"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "3888">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "secondMovies.checkViewController.(viewDidLoad (secondMovies.checkViewController) -&gt; () -&gt; ()).(closure #1)"
+                  moduleName = "secondMovies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/TakashiroKoichi/Desktop/20160125_iOS/secondMovies/secondMovies/checkViewController.swift"
+                  timestampString = "478541658.096928"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

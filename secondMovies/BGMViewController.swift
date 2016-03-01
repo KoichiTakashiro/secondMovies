@@ -109,7 +109,7 @@ class BGMViewController: UIViewController {
             
         }
         
-        var assetExport: AVAssetExportSession = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetPassthrough)!
+        var assetExport: AVAssetExportSession = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetMediumQuality)!
         assetExport.outputFileType = AVFileTypeQuickTimeMovie
         assetExport.outputURL = savePathUrl
         print(savePathUrl)
