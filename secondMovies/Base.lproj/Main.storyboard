@@ -208,6 +208,7 @@
                                 <state key="normal" title="音楽決定ボタン"/>
                                 <connections>
                                     <action selector="addBtnTap:" destination="ORW-C7-edv" eventType="touchUpInside" id="riO-pO-SHg"/>
+                                    <segue destination="RfR-KY-nzb" kind="modal" identifier="previewSegue" id="U5i-up-YSU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Kp-u3-E5j">

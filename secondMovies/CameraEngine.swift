@@ -23,7 +23,7 @@ class CameraEngine : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVC
     var isCapturing = false
     var isPaused = false
     var isDiscontinue = false
-    var fileIndex = 0
+    var fileIndex = 1
     var isSuccess = false
     
     var timeOffset = CMTimeMake(0, 0)

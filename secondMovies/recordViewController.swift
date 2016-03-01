@@ -302,6 +302,7 @@ class recordViewController: UIViewController {
             //３０秒到達時に自動的に次へ飛ばす
             if self.cameraEngine.isCapturing {
                 self.cameraEngine.stop()
+                print("カメラエンジンのStop発動")
                 //ユーザーデフォルトにカウント数書き込み
                 cnt = 0.00
                 var myDefault = NSUserDefaults.standardUserDefaults()

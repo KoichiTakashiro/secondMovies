@@ -12,6 +12,8 @@ import AssetsLibrary
 
 class BGMViewController: UIViewController {
     
+    let cameraEngine = CameraEngine()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,16 +27,36 @@ class BGMViewController: UIViewController {
     
     @IBAction func soundBtnTap(sender: UIButton) {
         bgmPlay()
+        print("サンプル音再生")
     }
     
     @IBAction func addBtnTap(sender: UIButton) {
-        //
+        var audioURL:NSURL
+        var moviePathUrl:NSURL
+        var savePathUrl:NSURL
+        
+        audioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("drumroll", ofType: "mp3")!)
+        moviePathUrl = cameraEngine.filePathUrl()
+        //ここまで戻そう
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentsDirectory = paths[0] as String
+        let filePath : String = "\(documentsDirectory)/videosample.mp4"
+        savePathUrl = NSURL(fileURLWithPath: filePath)
+        
+        print("ファイルパスまで取得")
+        
+        mergeAudio(audioURL, moviePathUrl: moviePathUrl, savePathUrl: savePathUrl)
+        
+        print("ファイルマージしたつもり")
+        
+//        var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
+//        self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
     }
     
     //BGMの準備
     var musicPlayer:AVAudioPlayer!
     // 再生するmusicファイルのパスを取得  今回は[music.mp3]
-    let music_data = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("cameraSound", ofType: "mp3")!)
+    let music_data = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("drumroll", ofType: "mp3")!)
 
     
     func bgmPlay() {
@@ -48,7 +70,6 @@ class BGMViewController: UIViewController {
         }
     }
 
-    
     func mergeAudio(audioURL: NSURL, moviePathUrl: NSURL, savePathUrl: NSURL) {
         var composition = AVMutableComposition()
         let trackVideo:AVMutableCompositionTrack = composition.addMutableTrackWithMediaType(AVMediaTypeVideo, preferredTrackID: CMPersistentTrackID())
@@ -61,11 +82,15 @@ class BGMViewController: UIViewController {
         print("playable: \(sourceAsset.playable)")
         print("exportable: \(sourceAsset.exportable)")
         print("readable: \(sourceAsset.readable)")
+        print("audioURL:\(audioURL)")
+        print("moviePathUrl:\(moviePathUrl)")
+        print("savePathUrl:\(savePathUrl)")
         
         let tracks = sourceAsset.tracksWithMediaType(AVMediaTypeVideo)
         let audios = audioAsset.tracksWithMediaType(AVMediaTypeAudio)
         
         if tracks.count > 0 {
+            print("trackカウントif文の中")
             let assetTrack:AVAssetTrack = tracks[0] as AVAssetTrack
             let assetTrackAudio:AVAssetTrack = audios[0] as AVAssetTrack
             
@@ -74,6 +99,7 @@ class BGMViewController: UIViewController {
             print(audioSeconds)
             
             do{
+                print("doの中")
                 try trackVideo.insertTimeRange(CMTimeRangeMake(kCMTimeZero,audioDuration), ofTrack: assetTrack, atTime: kCMTimeZero)
                 try trackVideo.insertTimeRange(CMTimeRangeMake(kCMTimeZero,audioDuration), ofTrack: assetTrackAudio, atTime: kCMTimeZero)
 
@@ -84,13 +110,16 @@ class BGMViewController: UIViewController {
         }
         
         var assetExport: AVAssetExportSession = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetPassthrough)!
-        assetExport.outputFileType = AVFileTypeMPEG4
+        assetExport.outputFileType = AVFileTypeQuickTimeMovie
         assetExport.outputURL = savePathUrl
+        print(savePathUrl)
         //self.tmpMovieURL = savePathUrl
         assetExport.shouldOptimizeForNetworkUse = true
         assetExport.exportAsynchronouslyWithCompletionHandler({
             self.performSegueWithIdentifier("previewSegue", sender: self)
+        print("ファイルマージ最後までいった")
         })
+        
         
     }
 

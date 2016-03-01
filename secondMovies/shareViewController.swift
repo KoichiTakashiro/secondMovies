@@ -8,12 +8,16 @@
 
 import UIKit
 import Social
+import AVFoundation
+import AssetsLibrary
 
 class shareViewController: UIViewController {
     
     let cameraEngine = CameraEngine()
     var myComposeView : SLComposeViewController!
     var topBtn : UIButton!
+    var videoWriter : VideoWriter?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +31,22 @@ class shareViewController: UIViewController {
     }
     
     @IBAction func saveBtnTap(sender: UIButton) {
-        cameraEngine.save()
+        let assetsLib = ALAssetsLibrary()
+        
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentsDirectory = paths[0] as String
+        let filePath : String = "\(documentsDirectory)/videosample.mp4"
+        let fileURL : NSURL = NSURL(fileURLWithPath: filePath)
+        let savePathUrl:NSURL = NSURL(fileURLWithPath: filePath)
+        print(savePathUrl)
+        
+        assetsLib.writeVideoAtPathToSavedPhotosAlbum(savePathUrl, completionBlock: {
+            (nsurl, error) -> Void in
+            Logger.log("Transfer video to library finished.")
+            //self.fileIndex++
+            print("カメラロールに保存")
+        })
+
         print("shareページで保存")
     }
     
