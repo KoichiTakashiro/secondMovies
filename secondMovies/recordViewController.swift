@@ -278,7 +278,7 @@ class recordViewController: UIViewController {
             myDefault.setFloat(cnt, forKey: "defaultCnt")
             myDefault.synchronize()
             timer.invalidate()
-            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
+            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "BGMViewController" )
 //            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "checkViewController" )
             self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
 
@@ -308,7 +308,7 @@ class recordViewController: UIViewController {
                 myDefault.setFloat(cnt, forKey: "defaultCnt")
                 myDefault.synchronize()
                 timer.invalidate()
-                var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
+                var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "BGMViewController" )
                 self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
                 soundPlay()
                 print("３０秒撮影済み自動停止")

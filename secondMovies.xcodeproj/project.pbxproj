@@ -28,6 +28,8 @@
 		C15EEDF71C7ADC4C00D21CE9 /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EEDF61C7ADC4C00D21CE9 /* AVPlayerView.swift */; };
 		C15EEDFB1C7AE04700D21CE9 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EEDFA1C7AE04700D21CE9 /* Logger.swift */; };
 		C17F40271C830F42006897F7 /* cameraSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C17F40261C830F42006897F7 /* cameraSound.mp3 */; };
+		C17F402A1C8532B7006897F7 /* soundAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17F40291C8532B7006897F7 /* soundAddViewController.swift */; };
+		C17F402E1C854488006897F7 /* BGMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17F402D1C854488006897F7 /* BGMViewController.swift */; };
 		C7FE64E0C1F31E3E5F36803B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67125D915CC6B0E40A2C2514 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,8 @@
 		C15EEDFA1C7AE04700D21CE9 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		C17F40261C830F42006897F7 /* cameraSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraSound.mp3; sourceTree = "<group>"; };
 		C17F40281C8321EC006897F7 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		C17F40291C8532B7006897F7 /* soundAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = soundAddViewController.swift; sourceTree = "<group>"; };
+		C17F402D1C854488006897F7 /* BGMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGMViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,8 @@
 				C1323AF91C7D5B0300628A7E /* checkViewController.swift */,
 				C152C4711C7DC551003DF1B7 /* shareViewController.swift */,
 				C152C4731C7DC5EE003DF1B7 /* musicViewController.swift */,
+				C17F40291C8532B7006897F7 /* soundAddViewController.swift */,
+				C17F402D1C854488006897F7 /* BGMViewController.swift */,
 			);
 			path = secondMovies;
 			sourceTree = "<group>";
@@ -396,11 +402,13 @@
 				C152C4741C7DC5EE003DF1B7 /* musicViewController.swift in Sources */,
 				C15EEDEF1C7AD7C000D21CE9 /* CameraEngine.swift in Sources */,
 				C15EEDC01C7AD67500D21CE9 /* secondMovies.xcdatamodeld in Sources */,
+				C17F402E1C854488006897F7 /* BGMViewController.swift in Sources */,
 				C15EEDB81C7AD67500D21CE9 /* AppDelegate.swift in Sources */,
 				C15EEDFB1C7AE04700D21CE9 /* Logger.swift in Sources */,
 				C15EEDF31C7AD8E100D21CE9 /* othersViewController.swift in Sources */,
 				C15EEDF71C7ADC4C00D21CE9 /* AVPlayerView.swift in Sources */,
 				C15EEDF11C7AD81800D21CE9 /* recordViewController.swift in Sources */,
+				C17F402A1C8532B7006897F7 /* soundAddViewController.swift in Sources */,
 				C15EEDF51C7AD92600D21CE9 /* detailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
