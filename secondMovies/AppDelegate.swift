@@ -19,26 +19,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // ▼ 1. windowの背景色にLaunchScreen.xibのviewの背景色と同じ色を設定
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window!.backgroundColor = UIColor(red: 247, green: 107, blue: 102, alpha: 1)
+        //self.window!.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+        self.window!.backgroundColor = UIColor(red: 245/255, green: 108/255, blue: 102/255, alpha: 1)
         self.window!.makeKeyAndVisible()
         
         // rootViewController from StoryBoard
-        // ▼ 2. rootViewControllerをStoryBoardから設定 (今回はUINavigationControllerとしているが、他のViewControllerでも可)
+        // ▼ 2. rootViewControllerをStoryBoardから設定
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         var navigationController = mainStoryboard.instantiateViewControllerWithIdentifier("navigationController") as! UIViewController
         self.window!.rootViewController = navigationController
         
         // logo mask
         // ▼ 3. rootViewController.viewをロゴ画像の形にマスクし、LaunchScreen.xibのロゴ画像と同サイズ・同位置に配置
+        //要はLoanchスクリーンと同じ状態を作る
         navigationController.view.layer.mask = CALayer()
         navigationController.view.layer.mask!.contents = UIImage(named: "flamingo")!.CGImage
-        navigationController.view.layer.mask!.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+        navigationController.view.layer.mask!.bounds = CGRect(x: 0, y: 0, width: 60, height: 60)
         navigationController.view.layer.mask!.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         navigationController.view.layer.mask!.position = CGPoint(x: navigationController.view.frame.width / 2, y: navigationController.view.frame.height / 2)
         
         // logo mask background view
         // ▼ 4. rootViewController.viewの最前面に白いviewを配置
-
         var maskBgView = UIView(frame: navigationController.view.frame)
         maskBgView.backgroundColor = UIColor.whiteColor()
         navigationController.view.addSubview(maskBgView)
@@ -63,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // logo mask background view animation
         // ▼ 6. rootViewController.viewの最前面に配置した白いviewを透化するアニメーション (完了後に親viewから削除)
         UIView.animateWithDuration(0.1,
-            delay: 1.35,
+            delay: 2.2,
             options: UIViewAnimationOptions.CurveEaseIn,
             animations: {
                 maskBgView.alpha = 0.0
