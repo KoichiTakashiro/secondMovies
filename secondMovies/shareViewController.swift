@@ -46,7 +46,7 @@ class shareViewController: UIViewController {
         assetsLib.writeVideoAtPathToSavedPhotosAlbum(savePathUrl, completionBlock: {
             (nsurl, error) -> Void in
             Logger.log("Transfer video to library finished.")
-            //self.fileIndex++
+            self.cameraEngine.fileIndex++
             print("カメラロールに保存")
         })
 
