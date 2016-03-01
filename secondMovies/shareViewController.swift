@@ -35,10 +35,13 @@ class shareViewController: UIViewController {
         
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let documentsDirectory = paths[0] as String
-        let filePath : String = "\(documentsDirectory)/videosample.mp4"
+        let filePath : String = "\(documentsDirectory)/videosample1.mp4"
         let fileURL : NSURL = NSURL(fileURLWithPath: filePath)
         let savePathUrl:NSURL = NSURL(fileURLWithPath: filePath)
         print(savePathUrl)
+        
+        //assetsLib.videoAtPathIsCompatibleWithSavedPhotosAlbum(savePathUrl)
+        //print("videoAtPathIsCompatibleWithSavedPhotosAlbum発動！！")
         
         assetsLib.writeVideoAtPathToSavedPhotosAlbum(savePathUrl, completionBlock: {
             (nsurl, error) -> Void in

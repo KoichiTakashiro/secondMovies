@@ -40,7 +40,7 @@ class BGMViewController: UIViewController {
         //ここまで戻そう
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let documentsDirectory = paths[0] as String
-        let filePath : String = "\(documentsDirectory)/videosample.mp4"
+        let filePath : String = "\(documentsDirectory)/videosample1.mp4"
         savePathUrl = NSURL(fileURLWithPath: filePath)
         
         print("ファイルパスまで取得")
@@ -101,7 +101,7 @@ class BGMViewController: UIViewController {
             do{
                 print("doの中")
                 try trackVideo.insertTimeRange(CMTimeRangeMake(kCMTimeZero,audioDuration), ofTrack: assetTrack, atTime: kCMTimeZero)
-                try trackVideo.insertTimeRange(CMTimeRangeMake(kCMTimeZero,audioDuration), ofTrack: assetTrackAudio, atTime: kCMTimeZero)
+                try trackAudio.insertTimeRange(CMTimeRangeMake(kCMTimeZero,audioDuration), ofTrack: assetTrackAudio, atTime: kCMTimeZero)
 
             }catch{
                 print("error")
