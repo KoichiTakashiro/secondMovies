@@ -15,6 +15,7 @@ class recordViewController: UIViewController {
     var recordLabel: UILabel!
     var isRecording = false
     let cameraEngine = CameraEngine()
+    //let shareView = shareViewController()
 
     //カメラボタンの作成
     var cameraBtn, finishBtn: UIButton!
@@ -37,6 +38,8 @@ class recordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //不要なファイルの削除
+        //shareView.deleteFiles()
         
         var myDefault = NSUserDefaults.standardUserDefaults()
         cnt = myDefault.floatForKey("defaultCnt")
@@ -278,7 +281,7 @@ class recordViewController: UIViewController {
             myDefault.setFloat(cnt, forKey: "defaultCnt")
             myDefault.synchronize()
             timer.invalidate()
-            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
+            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "BGMViewController" )
 //            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "checkViewController" )
             self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
 
@@ -302,13 +305,14 @@ class recordViewController: UIViewController {
             //３０秒到達時に自動的に次へ飛ばす
             if self.cameraEngine.isCapturing {
                 self.cameraEngine.stop()
+                print("カメラエンジンのStop発動")
                 //ユーザーデフォルトにカウント数書き込み
                 cnt = 0.00
                 var myDefault = NSUserDefaults.standardUserDefaults()
                 myDefault.setFloat(cnt, forKey: "defaultCnt")
                 myDefault.synchronize()
                 timer.invalidate()
-                var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
+                var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "BGMViewController" )
                 self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
                 soundPlay()
                 print("３０秒撮影済み自動停止")
