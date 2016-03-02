@@ -17,6 +17,8 @@ class shareViewController: UIViewController {
     var myComposeView : SLComposeViewController!
     var topBtn : UIButton!
     var videoWriter : VideoWriter?
+    var filePath = ""
+    var firstFilePath = ""
 
 
     override func viewDidLoad() {
@@ -35,7 +37,7 @@ class shareViewController: UIViewController {
         
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let documentsDirectory = paths[0] as String
-        let filePath : String = "\(documentsDirectory)/videosample1.mp4"
+        filePath = "\(documentsDirectory)/videoWithBGM\(cameraEngine.fileIndex).mp4"
         let fileURL : NSURL = NSURL(fileURLWithPath: filePath)
         let savePathUrl:NSURL = NSURL(fileURLWithPath: filePath)
         print(savePathUrl)
@@ -46,11 +48,32 @@ class shareViewController: UIViewController {
         assetsLib.writeVideoAtPathToSavedPhotosAlbum(savePathUrl, completionBlock: {
             (nsurl, error) -> Void in
             Logger.log("Transfer video to library finished.")
-            self.cameraEngine.fileIndex++
+            //self.cameraEngine.fileIndex++
+            print("ファイルインデックスは\(self.cameraEngine.fileIndex)")
             print("カメラロールに保存")
+            self.deleteFiles()
         })
+        
+        
+    }
+    
+    func deleteFiles(){
+        
+        let manager = NSFileManager()
+        firstFilePath = cameraEngine.filePath()
+        
+        if firstFilePath != "" && self.filePath != "" {
+            do {
+                try manager.removeItemAtPath(self.filePath)
+                try manager.removeItemAtPath(firstFilePath)
+                print("documents内のファイル削除")
+                
+            } catch {
+                print("error")
+            }
+        }
 
-        print("shareページで保存")
+        
     }
     
     

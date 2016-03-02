@@ -17,6 +17,7 @@ class CameraEngine : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVC
     let audioDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeAudio)
     var videoWriter : VideoWriter?
     
+    
     var height:Int?
     var width:Int?
     
@@ -104,6 +105,7 @@ class CameraEngine : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVC
     }
     
     func save(){
+        //たぶんsave()自体不要
         let assetsLib = ALAssetsLibrary()
         assetsLib.writeVideoAtPathToSavedPhotosAlbum(self.filePathUrl(), completionBlock: {
             (nsurl, error) -> Void in

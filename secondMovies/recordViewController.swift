@@ -15,6 +15,7 @@ class recordViewController: UIViewController {
     var recordLabel: UILabel!
     var isRecording = false
     let cameraEngine = CameraEngine()
+    //let shareView = shareViewController()
 
     //カメラボタンの作成
     var cameraBtn, finishBtn: UIButton!
@@ -37,6 +38,8 @@ class recordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //不要なファイルの削除
+        //shareView.deleteFiles()
         
         var myDefault = NSUserDefaults.standardUserDefaults()
         cnt = myDefault.floatForKey("defaultCnt")

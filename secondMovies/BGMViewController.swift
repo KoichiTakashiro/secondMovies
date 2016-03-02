@@ -40,10 +40,13 @@ class BGMViewController: UIViewController {
         //ここまで戻そう
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let documentsDirectory = paths[0] as String
-        let filePath : String = "\(documentsDirectory)/videosample1.mp4"
+        let filePath : String = "\(documentsDirectory)/videoWithBGM\(cameraEngine.fileIndex).mp4"
         savePathUrl = NSURL(fileURLWithPath: filePath)
         
         print("ファイルパスまで取得")
+        
+        cameraEngine.fileIndex++
+        print("ファイルインデックスは\(cameraEngine.fileIndex)")
         
         mergeAudio(audioURL, moviePathUrl: moviePathUrl, savePathUrl: savePathUrl)
         
