@@ -28,6 +28,10 @@
 		C15EEDF71C7ADC4C00D21CE9 /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EEDF61C7ADC4C00D21CE9 /* AVPlayerView.swift */; };
 		C15EEDFB1C7AE04700D21CE9 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15EEDFA1C7AE04700D21CE9 /* Logger.swift */; };
 		C17F40271C830F42006897F7 /* cameraSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C17F40261C830F42006897F7 /* cameraSound.mp3 */; };
+		C17F402E1C854488006897F7 /* BGMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17F402D1C854488006897F7 /* BGMViewController.swift */; };
+		C17F40301C856CBC006897F7 /* drumroll.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C17F402F1C856CBB006897F7 /* drumroll.mp3 */; };
+		C1A448921C871CD900BDED5F /* battle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C1A448911C871CD900BDED5F /* battle.mp3 */; };
+		C1A448941C871CE600BDED5F /* jazz.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C1A448931C871CE600BDED5F /* jazz.mp3 */; };
 		C7FE64E0C1F31E3E5F36803B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67125D915CC6B0E40A2C2514 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +84,10 @@
 		C15EEDFA1C7AE04700D21CE9 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		C17F40261C830F42006897F7 /* cameraSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraSound.mp3; sourceTree = "<group>"; };
 		C17F40281C8321EC006897F7 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		C17F402D1C854488006897F7 /* BGMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGMViewController.swift; sourceTree = "<group>"; };
+		C17F402F1C856CBB006897F7 /* drumroll.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = drumroll.mp3; sourceTree = "<group>"; };
+		C1A448911C871CD900BDED5F /* battle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = battle.mp3; sourceTree = "<group>"; };
+		C1A448931C871CE600BDED5F /* jazz.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jazz.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,11 +184,15 @@
 				C15EEDF21C7AD8E100D21CE9 /* othersViewController.swift */,
 				C15EEDF41C7AD92600D21CE9 /* detailViewController.swift */,
 				C15EEDF61C7ADC4C00D21CE9 /* AVPlayerView.swift */,
+				C17F402F1C856CBB006897F7 /* drumroll.mp3 */,
 				C17F40261C830F42006897F7 /* cameraSound.mp3 */,
 				C15EEDFA1C7AE04700D21CE9 /* Logger.swift */,
 				C1323AF91C7D5B0300628A7E /* checkViewController.swift */,
 				C152C4711C7DC551003DF1B7 /* shareViewController.swift */,
 				C152C4731C7DC5EE003DF1B7 /* musicViewController.swift */,
+				C17F402D1C854488006897F7 /* BGMViewController.swift */,
+				C1A448931C871CE600BDED5F /* jazz.mp3 */,
+				C1A448911C871CD900BDED5F /* battle.mp3 */,
 			);
 			path = secondMovies;
 			sourceTree = "<group>";
@@ -317,6 +329,9 @@
 				C15EEDC21C7AD67500D21CE9 /* Assets.xcassets in Resources */,
 				C15EEDBD1C7AD67500D21CE9 /* Main.storyboard in Resources */,
 				C17F40271C830F42006897F7 /* cameraSound.mp3 in Resources */,
+				C1A448921C871CD900BDED5F /* battle.mp3 in Resources */,
+				C1A448941C871CE600BDED5F /* jazz.mp3 in Resources */,
+				C17F40301C856CBC006897F7 /* drumroll.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +411,7 @@
 				C152C4741C7DC5EE003DF1B7 /* musicViewController.swift in Sources */,
 				C15EEDEF1C7AD7C000D21CE9 /* CameraEngine.swift in Sources */,
 				C15EEDC01C7AD67500D21CE9 /* secondMovies.xcdatamodeld in Sources */,
+				C17F402E1C854488006897F7 /* BGMViewController.swift in Sources */,
 				C15EEDB81C7AD67500D21CE9 /* AppDelegate.swift in Sources */,
 				C15EEDFB1C7AE04700D21CE9 /* Logger.swift in Sources */,
 				C15EEDF31C7AD8E100D21CE9 /* othersViewController.swift in Sources */,

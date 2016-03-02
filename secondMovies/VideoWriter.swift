@@ -40,6 +40,8 @@ class VideoWriter : NSObject{
         self.fileWriter.addInput(self.audioInput)
     }
     
+    
+    
     func write(sample: CMSampleBufferRef, isVideo: Bool){
         if CMSampleBufferDataIsReady(sample) {
             if self.fileWriter.status == AVAssetWriterStatus.Unknown {
