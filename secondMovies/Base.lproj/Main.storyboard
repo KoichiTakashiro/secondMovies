@@ -156,7 +156,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="timerLabel" destination="VhP-fu-Oqz" id="Crh-XN-umm"/>
-                        <segue destination="JqB-Xv-qGp" kind="push" id="tcE-UT-rAX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88T-YN-8cc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -186,12 +185,47 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="videoPlayerView" destination="LQm-he-YAn" id="zHT-VU-j8G"/>
-                        <segue destination="RfR-KY-nzb" kind="push" id="Q5c-lE-M6D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SwF-U0-hK1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2809.5" y="594.5"/>
+            <point key="canvasLocation" x="2775.5" y="142.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="67s-fs-gPt">
+            <objects>
+                <viewController storyboardIdentifier="BGMViewController" id="ORW-C7-edv" customClass="BGMViewController" customModule="secondMovies" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G6Z-3m-wxK"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ei3-DE-L7h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ecs-RH-Rrj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahh-29-29E">
+                                <rect key="frame" x="126" y="149" width="105" height="30"/>
+                                <state key="normal" title="音楽決定ボタン"/>
+                                <connections>
+                                    <action selector="addBtnTap:" destination="ORW-C7-edv" eventType="touchUpInside" id="riO-pO-SHg"/>
+                                    <segue destination="RfR-KY-nzb" kind="modal" identifier="previewSegue" id="U5i-up-YSU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Kp-u3-E5j">
+                                <rect key="frame" x="126" y="83" width="105" height="30"/>
+                                <state key="normal" title="音楽再生ボタン"/>
+                                <connections>
+                                    <action selector="soundBtnTap:" destination="ORW-C7-edv" eventType="touchUpInside" id="JZj-yf-RuL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qMI-n3-qca" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2820.5" y="869.5"/>
         </scene>
         <!--シェア-->
         <scene sceneID="iqT-IQ-TxK">
