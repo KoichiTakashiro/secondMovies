@@ -110,7 +110,7 @@ class CameraEngine : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVC
         assetsLib.writeVideoAtPathToSavedPhotosAlbum(self.filePathUrl(), completionBlock: {
             (nsurl, error) -> Void in
             Logger.log("Transfer video to library finished.")
-            self.fileIndex++
+            //self.fileIndex++
             print("カメラロールに保存")
         })
     }
