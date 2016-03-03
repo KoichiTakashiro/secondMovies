@@ -57,25 +57,7 @@ class shareViewController: UIViewController {
         
     }
     
-    func deleteFiles(){
         
-        let manager = NSFileManager()
-        firstFilePath = cameraEngine.filePath()
-        
-        if firstFilePath != "" && self.filePath != "" {
-            do {
-                try manager.removeItemAtPath(self.filePath)
-                try manager.removeItemAtPath(firstFilePath)
-                print("documents内のファイル削除")
-                
-            } catch {
-                print("error")
-            }
-        }
-
-        
-    }
-    
     
     @IBAction func twitterBtnTap(sender: UIButton) {
         // SLComposeViewControllerのインスタンス化.

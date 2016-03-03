@@ -38,7 +38,7 @@
                   moduleName = "secondMovies"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/TakashiroKoichi/Desktop/20160125_iOS/secondMovies/secondMovies/checkViewController.swift"
-                  timestampString = "478679918.083758"
+                  timestampString = "478706857.462715"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "81"
@@ -53,7 +53,7 @@
                   moduleName = "secondMovies"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/TakashiroKoichi/Desktop/20160125_iOS/secondMovies/secondMovies/checkViewController.swift"
-                  timestampString = "478679918.084136"
+                  timestampString = "478706857.462988"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "84"
@@ -70,141 +70,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "secondMovies/BGMViewController.swift"
-            timestampString = "478679917.996277"
+            timestampString = "478706298.024191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "addMusicBtnTap(_:)"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "secondMovies/BGMViewController.swift"
-            timestampString = "478679917.996277"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "addMusicBtnTap(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "secondMovies/shareViewController.swift"
-            timestampString = "478675107.30859"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "deleteFiles()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "secondMovies/BGMViewController.swift"
-            timestampString = "478679917.996277"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
-            landmarkName = "mergeAudio(_:moviePathUrl:savePathUrl:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "secondMovies.BGMViewController.mergeAudio (secondMovies.BGMViewController)(__ObjC.NSURL, moviePathUrl : __ObjC.NSURL, savePathUrl : __ObjC.NSURL) -&gt; ()"
-                  moduleName = "secondMovies"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/TakashiroKoichi/Desktop/20160125_iOS/secondMovies/secondMovies/BGMViewController.swift"
-                  timestampString = "478679918.250761"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "208"
-                  endingLineNumber = "208"
-                  offsetFromSymbolStart = "4844">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "secondMovies.BGMViewController.(mergeAudio (secondMovies.BGMViewController) -&gt; (__ObjC.NSURL, moviePathUrl : __ObjC.NSURL, savePathUrl : __ObjC.NSURL) -&gt; ()).(closure #1)"
-                  moduleName = "secondMovies"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/TakashiroKoichi/Desktop/20160125_iOS/secondMovies/secondMovies/BGMViewController.swift"
-                  timestampString = "478679918.251007"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "210"
-                  endingLineNumber = "210"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "secondMovies/BGMViewController.swift"
-            timestampString = "478679917.996277"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
-            landmarkName = "mergeAudio(_:moviePathUrl:savePathUrl:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "secondMovies.BGMViewController.mergeAudio (secondMovies.BGMViewController)(__ObjC.NSURL, moviePathUrl : __ObjC.NSURL, savePathUrl : __ObjC.NSURL) -&gt; ()"
-                  moduleName = "secondMovies"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/TakashiroKoichi/Desktop/20160125_iOS/secondMovies/secondMovies/BGMViewController.swift"
-                  timestampString = "478679918.252202"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "211"
-                  endingLineNumber = "211"
-                  offsetFromSymbolStart = "4948">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "secondMovies.BGMViewController.(mergeAudio (secondMovies.BGMViewController) -&gt; (__ObjC.NSURL, moviePathUrl : __ObjC.NSURL, savePathUrl : __ObjC.NSURL) -&gt; ()).(closure #1)"
-                  moduleName = "secondMovies"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/TakashiroKoichi/Desktop/20160125_iOS/secondMovies/secondMovies/BGMViewController.swift"
-                  timestampString = "478679918.252481"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "211"
-                  endingLineNumber = "211"
-                  offsetFromSymbolStart = "164">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
