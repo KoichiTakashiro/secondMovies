@@ -13,8 +13,6 @@ import AssetsLibrary
 class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     let cameraEngine = CameraEngine()
-    var index:Int = -1
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -81,7 +79,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         var musicLabel = cell.viewWithTag(1) as! UILabel
         musicLabel.text = musicList[indexPath.row]["name"] as! String
         var playbackBtn = cell.viewWithTag(2) as! UIButton
-        playbackBtn.setTitle("再生", forState: .Normal)
+        playbackBtn.setTitle("▶", forState: .Normal)
         playbackBtn.tag = 100 + indexPath.row + 1
         var addMusicBtn = cell.viewWithTag(3) as! UIButton
         addMusicBtn.setTitle("決定", forState: .Normal)
@@ -128,11 +126,11 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         var audioURL:NSURL
         var moviePathUrl:NSURL
         var savePathUrl:NSURL
-        
         var musicName = musicList[sender.tag-101]["fileName"] as! String
         print("musicNameは\(musicName)")
         
         audioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(musicName, ofType: "mp3")!)
+        let movieFilePath = cameraEngine.filePath()
         moviePathUrl = cameraEngine.filePathUrl()
         //ここまで戻そう
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
@@ -143,28 +141,33 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         print(moviePathUrl)
         print(savePathUrl)
         
-        //cameraEngine.fileIndex++
-        print("ファイルインデックスは\(cameraEngine.fileIndex)")
-        
         mergeAudio(audioURL, moviePathUrl: moviePathUrl, savePathUrl: savePathUrl)
         
         print("ファイルマージしたつもり")
         
         //        var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
         //        self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
-        let assetsLib = ALAssetsLibrary()
-        assetsLib.writeVideoAtPathToSavedPhotosAlbum(savePathUrl, completionBlock: {
-            (nsurl, error) -> Void in
-            Logger.log("Transfer video to library finished.")
-            print("BGMありの特定のビデオをカメラロールに保存")
-            //self.deleteFiles()
-        })
         
-        var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
-        self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
-        self.cameraEngine.fileIndex++
-        print("ファイルインデックスは\(self.cameraEngine.fileIndex)")
+            }
+    
+    func deleteFiles() {
+        let movieFilePath = cameraEngine.filePath()
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentsDirectory = paths[0] as String
+        let filePath : String = "\(documentsDirectory)/videoWithBGM\(cameraEngine.fileIndex).mp4"
 
+        let manager = NSFileManager()
+        
+        if movieFilePath != "" && filePath != "" {
+            do {
+                try manager.removeItemAtPath(movieFilePath)
+                try manager.removeItemAtPath(filePath)
+                print("documents内のファイル削除")
+                
+            } catch {
+                print("error")
+            }
+        }
 
     }
     
@@ -227,7 +230,34 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
             //self.performSegueWithIdentifier("previewSegue", sender: self)
 ///////ここでデータ消えている
         print("ファイルマージ最後までいった")
+        print("\(self.cameraEngine.fileIndex)")
         })
+        
+        let assetsLib = ALAssetsLibrary()
+        assetsLib.writeVideoAtPathToSavedPhotosAlbum(savePathUrl, completionBlock: {
+            (nsurl, error) -> Void in
+            Logger.log("Transfer video to library finished.")
+            print("BGMありの特定のビデオをカメラロールに保存")
+            self.deleteFiles()
+            //保存済みデータの削除
+//            let manager = NSFileManager()
+//            
+//            let movieFilePath:String = String(moviePathUrl)
+//            let saveFilePath : String = String(savePathUrl)
+//            if movieFilePath != "" && saveFilePath != "" {
+//                do {
+//                    try manager.removeItemAtPath(movieFilePath)
+//                    try manager.removeItemAtPath(saveFilePath)
+//                    print("documents内のファイル削除")
+//                    
+//                } catch {
+//                    print("error")
+//                }
+//            }
+        })
+        
+        var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
+        self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
         
         
     }
