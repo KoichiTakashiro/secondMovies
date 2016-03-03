@@ -56,7 +56,8 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
     var musicList:[NSDictionary] =
     [
         ["name":"battle", "fileName":"battle"],
-        ["name":"jazz", "fileName":"jazz"]
+        ["name":"jazz", "fileName":"jazz"],
+        ["name":"drumroll", "fileName":"drumroll"]
         
     ]
     
@@ -135,7 +136,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         var savePathUrl:NSURL
         
         var musicName = musicList[sender.tag-101]["fileName"] as! String
-        print("musicNnamehは\(musicName)")
+        print("musicNameは\(musicName)")
         audioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(musicName, ofType: "mp3")!)
         moviePathUrl = cameraEngine.filePathUrl()
         //ここまで戻そう
@@ -205,7 +206,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         //self.tmpMovieURL = savePathUrl
         assetExport.shouldOptimizeForNetworkUse = true
         assetExport.exportAsynchronouslyWithCompletionHandler({
-            self.performSegueWithIdentifier("previewSegue", sender: self)
+            //self.performSegueWithIdentifier("previewSegue", sender: self)
         print("ファイルマージ最後までいった")
         })
         

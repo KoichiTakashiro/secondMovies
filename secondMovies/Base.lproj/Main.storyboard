@@ -232,7 +232,6 @@
                                                     <state key="normal" title="決定"/>
                                                     <connections>
                                                         <action selector="addMusicBtnTap:" destination="ORW-C7-edv" eventType="touchUpInside" id="eGr-Sc-jGr"/>
-                                                        <segue destination="RfR-KY-nzb" kind="modal" identifier="previewSegue" id="i2g-gb-dkq"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
