@@ -254,7 +254,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1P-Nc-5P6">
                                 <rect key="frame" x="20" y="107" width="335" height="30"/>
-                                <state key="normal" title="BGMを追加せずに作成"/>
+                                <state key="normal" title="BGMを追加せずに作成(リアル音声)"/>
                                 <connections>
                                     <action selector="addNoMusicBtnTap:" destination="ORW-C7-edv" eventType="touchUpInside" id="Vm7-iG-yPX"/>
                                 </connections>

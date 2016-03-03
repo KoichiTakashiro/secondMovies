@@ -47,6 +47,9 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
             //self.deleteFiles()
         })
         
+        var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
+        self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+        
 
     }
     
