@@ -41,7 +41,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         assetsLib.writeVideoAtPathToSavedPhotosAlbum(filePathUrl, completionBlock: {
             (nsurl, error) -> Void in
             Logger.log("Transfer video to library finished.")
-            //self.cameraEngine.fileIndex++
+            self.cameraEngine.fileIndex++
             print("ファイルインデックスは\(self.cameraEngine.fileIndex)")
             print("BGMなしでカメラロールに保存")
             //self.deleteFiles()
@@ -57,7 +57,8 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
     [
         ["name":"battle", "fileName":"battle"],
         ["name":"jazz", "fileName":"jazz"],
-        ["name":"drumroll", "fileName":"drumroll"]
+        ["name":"drumroll", "fileName":"drumroll"],
+        ["name":"pinch", "fileName":"pinch"]
         
     ]
     
@@ -155,15 +156,15 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         assetsLib.writeVideoAtPathToSavedPhotosAlbum(savePathUrl, completionBlock: {
             (nsurl, error) -> Void in
             Logger.log("Transfer video to library finished.")
-            self.cameraEngine.fileIndex++
-            print("ファイルインデックスは\(self.cameraEngine.fileIndex)")
             print("BGMありの特定のビデオをカメラロールに保存")
             //self.deleteFiles()
         })
         
         var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
         self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
-        
+        self.cameraEngine.fileIndex++
+        print("ファイルインデックスは\(self.cameraEngine.fileIndex)")
+
 
     }
     

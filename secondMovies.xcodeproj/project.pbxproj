@@ -30,6 +30,7 @@
 		C17F40271C830F42006897F7 /* cameraSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C17F40261C830F42006897F7 /* cameraSound.mp3 */; };
 		C17F402E1C854488006897F7 /* BGMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17F402D1C854488006897F7 /* BGMViewController.swift */; };
 		C17F40301C856CBC006897F7 /* drumroll.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C17F402F1C856CBB006897F7 /* drumroll.mp3 */; };
+		C1A2CA041C88823D00155FD1 /* pinch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C1A2CA031C88823D00155FD1 /* pinch.mp3 */; };
 		C1A448921C871CD900BDED5F /* battle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C1A448911C871CD900BDED5F /* battle.mp3 */; };
 		C1A448941C871CE600BDED5F /* jazz.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C1A448931C871CE600BDED5F /* jazz.mp3 */; };
 		C7FE64E0C1F31E3E5F36803B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67125D915CC6B0E40A2C2514 /* libPods.a */; };
@@ -86,6 +87,7 @@
 		C17F40281C8321EC006897F7 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		C17F402D1C854488006897F7 /* BGMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGMViewController.swift; sourceTree = "<group>"; };
 		C17F402F1C856CBB006897F7 /* drumroll.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = drumroll.mp3; sourceTree = "<group>"; };
+		C1A2CA031C88823D00155FD1 /* pinch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pinch.mp3; sourceTree = "<group>"; };
 		C1A448911C871CD900BDED5F /* battle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = battle.mp3; sourceTree = "<group>"; };
 		C1A448931C871CE600BDED5F /* jazz.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jazz.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +182,7 @@
 				C15EEDBE1C7AD67500D21CE9 /* secondMovies.xcdatamodeld */,
 				C15EEDEC1C7AD78500D21CE9 /* VideoWriter.swift */,
 				C15EEDEE1C7AD7C000D21CE9 /* CameraEngine.swift */,
+				C1A2CA031C88823D00155FD1 /* pinch.mp3 */,
 				C15EEDF01C7AD81800D21CE9 /* recordViewController.swift */,
 				C15EEDF21C7AD8E100D21CE9 /* othersViewController.swift */,
 				C15EEDF41C7AD92600D21CE9 /* detailViewController.swift */,
@@ -326,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C15EEDC51C7AD67500D21CE9 /* LaunchScreen.storyboard in Resources */,
+				C1A2CA041C88823D00155FD1 /* pinch.mp3 in Resources */,
 				C15EEDC21C7AD67500D21CE9 /* Assets.xcassets in Resources */,
 				C15EEDBD1C7AD67500D21CE9 /* Main.storyboard in Resources */,
 				C17F40271C830F42006897F7 /* cameraSound.mp3 in Resources */,

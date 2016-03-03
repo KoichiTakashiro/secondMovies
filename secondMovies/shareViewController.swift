@@ -33,27 +33,27 @@ class shareViewController: UIViewController {
     }
     
     @IBAction func saveBtnTap(sender: UIButton) {
-        let assetsLib = ALAssetsLibrary()
-        
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let documentsDirectory = paths[0] as String
-        filePath = "\(documentsDirectory)/videoWithBGM\(cameraEngine.fileIndex).mp4"
-        let fileURL : NSURL = NSURL(fileURLWithPath: filePath)
-        let savePathUrl:NSURL = NSURL(fileURLWithPath: filePath)
-        print(savePathUrl)
-        
-        //assetsLib.videoAtPathIsCompatibleWithSavedPhotosAlbum(savePathUrl)
-        //print("videoAtPathIsCompatibleWithSavedPhotosAlbum発動！！")
-        
-        assetsLib.writeVideoAtPathToSavedPhotosAlbum(savePathUrl, completionBlock: {
-            (nsurl, error) -> Void in
-            Logger.log("Transfer video to library finished.")
-            //self.cameraEngine.fileIndex++
-            print("ファイルインデックスは\(self.cameraEngine.fileIndex)")
-            print("カメラロールに保存")
-            //self.deleteFiles()
-        })
-        
+//        let assetsLib = ALAssetsLibrary()
+//        
+//        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+//        let documentsDirectory = paths[0] as String
+//        filePath = "\(documentsDirectory)/videoWithBGM\(cameraEngine.fileIndex).mp4"
+//        let fileURL : NSURL = NSURL(fileURLWithPath: filePath)
+//        let savePathUrl:NSURL = NSURL(fileURLWithPath: filePath)
+//        print(savePathUrl)
+//        
+//        //assetsLib.videoAtPathIsCompatibleWithSavedPhotosAlbum(savePathUrl)
+//        //print("videoAtPathIsCompatibleWithSavedPhotosAlbum発動！！")
+//        
+//        assetsLib.writeVideoAtPathToSavedPhotosAlbum(savePathUrl, completionBlock: {
+//            (nsurl, error) -> Void in
+//            Logger.log("Transfer video to library finished.")
+//            //self.cameraEngine.fileIndex++
+//            print("ファイルインデックスは\(self.cameraEngine.fileIndex)")
+//            print("カメラロールに保存")
+//            //self.deleteFiles()
+//        })
+//        
         
     }
     
