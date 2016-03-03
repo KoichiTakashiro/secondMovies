@@ -29,6 +29,27 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         // Dispose of any resources that can be recreated.
     }
     
+    //BGMを追加せずに動画を保存
+    @IBAction func addNoMusicBtnTap(sender: UIButton) {
+        let assetsLib = ALAssetsLibrary()
+        let filePathUrl:NSURL = cameraEngine.filePathUrl()
+        print(filePathUrl)
+        
+        //assetsLib.videoAtPathIsCompatibleWithSavedPhotosAlbum(savePathUrl)
+        //print("videoAtPathIsCompatibleWithSavedPhotosAlbum発動！！")
+        
+        assetsLib.writeVideoAtPathToSavedPhotosAlbum(filePathUrl, completionBlock: {
+            (nsurl, error) -> Void in
+            Logger.log("Transfer video to library finished.")
+            //self.cameraEngine.fileIndex++
+            print("ファイルインデックスは\(self.cameraEngine.fileIndex)")
+            print("BGMなしでカメラロールに保存")
+            //self.deleteFiles()
+        })
+        
+
+    }
+    
     var musicList:[NSDictionary] =
     [
         ["name":"battle", "fileName":"battle"],
