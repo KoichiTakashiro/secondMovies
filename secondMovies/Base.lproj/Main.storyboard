@@ -204,7 +204,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x8C-ST-vm7">
-                                <rect key="frame" x="0.0" y="57" width="375" height="610"/>
+                                <rect key="frame" x="0.0" y="220" width="375" height="447"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="sp9-nr-3Sm">
@@ -221,20 +221,20 @@
                                                         <action selector="soundBtnTap:" destination="ORW-C7-edv" eventType="touchUpInside" id="LdQ-Uv-hPg"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxz-XD-ZnQ">
-                                                    <rect key="frame" x="314" y="7" width="30" height="30"/>
-                                                    <state key="normal" title="決定"/>
-                                                    <connections>
-                                                        <action selector="addBtnTap:" destination="ORW-C7-edv" eventType="touchUpInside" id="yAr-NE-lwZ"/>
-                                                        <segue destination="RfR-KY-nzb" kind="modal" id="i2g-gb-dkq"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="音楽名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwA-0a-fe2">
                                                     <rect key="frame" x="10" y="11" width="51" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxz-XD-ZnQ">
+                                                    <rect key="frame" x="313" y="7" width="30" height="30"/>
+                                                    <state key="normal" title="決定"/>
+                                                    <connections>
+                                                        <action selector="addMusicBtnTap:" destination="ORW-C7-edv" eventType="touchUpInside" id="eGr-Sc-jGr"/>
+                                                        <segue destination="RfR-KY-nzb" kind="modal" identifier="previewSegue" id="i2g-gb-dkq"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -247,13 +247,14 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahh-29-29E">
                                 <rect key="frame" x="126" y="414" width="105" height="30"/>
                                 <state key="normal" title="音楽決定ボタン"/>
-                                <connections>
-                                    <segue destination="RfR-KY-nzb" kind="modal" identifier="previewSegue" id="U5i-up-YSU"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Kp-u3-E5j">
                                 <rect key="frame" x="126" y="340" width="105" height="30"/>
                                 <state key="normal" title="音楽再生ボタン"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1P-Nc-5P6">
+                                <rect key="frame" x="20" y="107" width="335" height="30"/>
+                                <state key="normal" title="BGMを追加せずに作成"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -319,7 +320,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLI-i0-TzW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kXr-ZW-Wen" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3314.5" y="600.5"/>
+            <point key="canvasLocation" x="3419.5" y="905.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lsc-YS-sTZ">
@@ -344,7 +345,4 @@
         <image name="shrimp" width="64" height="64"/>
         <image name="video" width="256" height="256"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="i2g-gb-dkq"/>
-    </inferredMetricsTieBreakers>
 </document>

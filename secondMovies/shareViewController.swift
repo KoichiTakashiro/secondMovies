@@ -51,7 +51,7 @@ class shareViewController: UIViewController {
             //self.cameraEngine.fileIndex++
             print("ファイルインデックスは\(self.cameraEngine.fileIndex)")
             print("カメラロールに保存")
-            self.deleteFiles()
+            //self.deleteFiles()
         })
         
         

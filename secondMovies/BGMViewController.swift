@@ -97,27 +97,22 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
             print(error)
         }
         
-        
 //        bgmPlay()
         print("サンプル音再生")
         print("再生ボタンタップ")
     }
-    
-    
-    
-    
-    
 //    func bgmPlay(musicName:String) {
-//        
+//
 //    }
 
-    
-    @IBAction func addBtnTap(sender: UIButton) {
+    @IBAction func addMusicBtnTap(sender: UIButton) {
         var audioURL:NSURL
         var moviePathUrl:NSURL
         var savePathUrl:NSURL
         
-        audioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("drumroll", ofType: "mp3")!)
+        var musicName = musicList[sender.tag-101]["fileName"] as! String
+        print("musicNnamehは\(musicName)")
+        audioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(musicName, ofType: "mp3")!)
         moviePathUrl = cameraEngine.filePathUrl()
         //ここまで戻そう
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
@@ -134,10 +129,11 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         
         print("ファイルマージしたつもり")
         
-//        var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
-//        self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+        //        var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
+        //        self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+        
+
     }
-    
     
     func mergeAudio(audioURL: NSURL, moviePathUrl: NSURL, savePathUrl: NSURL) {
         var composition = AVMutableComposition()
