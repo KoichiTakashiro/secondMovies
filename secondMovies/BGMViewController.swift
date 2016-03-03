@@ -148,7 +148,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         //        var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
         //        self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
         
-            }
+    }
     
     func deleteFiles() {
         let movieFilePath = cameraEngine.filePath()
@@ -238,7 +238,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
             (nsurl, error) -> Void in
             Logger.log("Transfer video to library finished.")
             print("BGMありの特定のビデオをカメラロールに保存")
-            self.deleteFiles()
+            //self.deleteFiles()
             //保存済みデータの削除
 //            let manager = NSFileManager()
 //            
