@@ -10,25 +10,107 @@ import UIKit
 import AVFoundation
 import AssetsLibrary
 
-class BGMViewController: UIViewController {
+class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     let cameraEngine = CameraEngine()
+    var index:Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    @IBOutlet weak var playbackBtn: UIButton!
+    @IBOutlet weak var addMusicBtn: UIButton!
 
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func soundBtnTap(sender: UIButton) {
-        bgmPlay()
-        print("サンプル音再生")
+    var musicList:[NSDictionary] =
+    [
+        ["name":"battle", "fileName":"battle"],
+        ["name":"jazz", "fileName":"jazz"]
+        
+    ]
+    
+    //テーブルビュー関連
+    //行数
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return musicList.count
     }
+    
+    // セルの選択を禁止する
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        return nil;
+    }
+    
+    
+    //表示するセルの中身
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        var cell = tableView.dequeueReusableCellWithIdentifier("myCell") as! UITableViewCell!
+        var musicLabel = cell.viewWithTag(1) as! UILabel
+        musicLabel.text = musicList[indexPath.row]["name"] as! String
+        var playbackBtn = cell.viewWithTag(2) as! UIButton
+        playbackBtn.setTitle("再生", forState: .Normal)
+        playbackBtn.tag = 100 + indexPath.row + 1
+        var addMusicBtn = cell.viewWithTag(3) as! UIButton
+        addMusicBtn.setTitle("決定", forState: .Normal)
+        addMusicBtn.tag = 100 + indexPath.row + 1
+
+        return cell
+    }
+    
+    //選択された時に行う処理
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("\(indexPath.row)行目を選択")
+//        selectedIndex = indexPath.row
+//        performSegueWithIdentifier("showSecondView", sender: nil)
+    }
+    
+    //segueで遷移するとき
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        var secondVC = segue.destinationViewController as! secondViewController
+//        secondVC.scSelectedIndex = selectedIndex
+    }
+
+    //BGMの準備
+    var musicPlayer:AVAudioPlayer!
+    // 再生するmusicファイルのパスを取得  今回は[music.mp3]
+    
+    @IBAction func soundBtnTap(sender: UIButton) {
+        print("sender.tagは：\(sender.tag)")
+        
+        var musicName = musicList[sender.tag-101]["fileName"] as! String
+        print("選択した音楽は\(musicList[sender.tag-101]["name"])")
+        
+        let music_data = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(musicName, ofType: "mp3")!)
+        do {
+            //動作部分
+            musicPlayer = try AVAudioPlayer(contentsOfURL: music_data)
+            musicPlayer.play()
+        }catch let error as NSError {
+            //エラーをキャッチした場合
+            print(error)
+        }
+        
+        
+//        bgmPlay()
+        print("サンプル音再生")
+        print("再生ボタンタップ")
+    }
+    
+    
+    
+    
+    
+//    func bgmPlay(musicName:String) {
+//        
+//    }
+
     
     @IBAction func addBtnTap(sender: UIButton) {
         var audioURL:NSURL
@@ -56,23 +138,7 @@ class BGMViewController: UIViewController {
 //        self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
     }
     
-    //BGMの準備
-    var musicPlayer:AVAudioPlayer!
-    // 再生するmusicファイルのパスを取得  今回は[music.mp3]
-    let music_data = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("drumroll", ofType: "mp3")!)
-
     
-    func bgmPlay() {
-        do {
-            //動作部分
-            musicPlayer = try AVAudioPlayer(contentsOfURL: music_data)
-            musicPlayer.play()
-        }catch let error as NSError {
-            //エラーをキャッチした場合
-            print(error)
-        }
-    }
-
     func mergeAudio(audioURL: NSURL, moviePathUrl: NSURL, savePathUrl: NSURL) {
         var composition = AVMutableComposition()
         let trackVideo:AVMutableCompositionTrack = composition.addMutableTrackWithMediaType(AVMediaTypeVideo, preferredTrackID: CMPersistentTrackID())

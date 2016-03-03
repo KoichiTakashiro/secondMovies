@@ -301,7 +301,7 @@ class recordViewController: UIViewController {
     //timerカウント関数
     func update() {
         //３０秒制限の場合は3001、一時的に601に設定
-        if cnt == 601 {
+        if cnt == 201 {
             //３０秒到達時に自動的に次へ飛ばす
             if self.cameraEngine.isCapturing {
                 self.cameraEngine.stop()
