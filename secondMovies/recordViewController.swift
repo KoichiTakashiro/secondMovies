@@ -60,10 +60,12 @@ class recordViewController: UIViewController {
         dispatch_async_global {
             //バックグラウンドスレッド
             //時間のかかる処理
-            self.cameraEngine.startup()
-
+            self.waitAtleast(3.0) {
+                self.cameraEngine.startup()
+            }
             //メインスレッド
             self.dispatch_async_main {
+                
                 if (self.cameraEngine.isSuccess == true) { // 呼び出し結果の確認
                     SVProgressHUD.showSuccessWithStatus("(`･ω･´)ｼｬｷｰﾝ!")
                     // 成功時の処理を行う(APIのレスポンスを利用して描画処理など)
@@ -72,6 +74,7 @@ class recordViewController: UIViewController {
                     // エラーハンドリング
                 }
             }
+            
         }
         
         
@@ -85,6 +88,17 @@ class recordViewController: UIViewController {
         //プログレス設置
         self.setupSlider()
         
+    }
+    
+    
+    func waitAtleast(time : NSTimeInterval, @noescape _ block: () -> Void) {
+        let start = NSDate()
+        block()
+        let elapsedTime = NSDate().timeIntervalSinceDate(start)
+        let waitTime = max(0.0, time - elapsedTime)
+        if waitTime > 0.0 {
+            NSThread.sleepForTimeInterval(waitTime)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
