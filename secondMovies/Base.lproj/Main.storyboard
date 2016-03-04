@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,18 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r1O-KV-EBR">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r1O-KV-EBR">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkA-Yz-qDq">
-                                        <rect key="frame" x="147" y="159" width="119" height="120"/>
-                                        <state key="normal" title="その他" image="shrimp">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="ZWN-9c-gDv" kind="push" id="Lzz-jS-tvi"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHw-YR-7ov">
                                         <rect key="frame" x="133" y="413" width="109" height="104"/>
                                         <state key="normal" title="作成" image="video"/>
@@ -36,8 +28,26 @@
                                             <segue destination="TQ4-B1-KOw" kind="push" id="Wyl-eD-E5y"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkA-Yz-qDq">
+                                        <rect key="frame" x="128" y="158" width="119" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="LbN-wK-X6f"/>
+                                            <constraint firstAttribute="width" constant="119" id="sDC-A7-PnB"/>
+                                            <constraint firstAttribute="height" constant="120" id="uSV-ZU-nlP"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="zZY-PK-cEr"/>
+                                        </constraints>
+                                        <state key="normal" image="document">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="ZWN-9c-gDv" kind="push" id="Lzz-jS-tvi"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.46666666670000001" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="SkA-Yz-qDq" firstAttribute="centerX" secondItem="r1O-KV-EBR" secondAttribute="centerX" id="dbb-S8-TKf"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -203,8 +213,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x8C-ST-vm7">
-                                <rect key="frame" x="0.0" y="220" width="375" height="447"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x8C-ST-vm7">
+                                <rect key="frame" x="0.0" y="87" width="375" height="312"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="sp9-nr-3Sm">
@@ -251,8 +261,14 @@
                                 <rect key="frame" x="126" y="340" width="105" height="30"/>
                                 <state key="normal" title="音楽再生ボタン"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="BGMを選択してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLA-R5-BcI">
+                                <rect key="frame" x="92" y="37" width="191" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1P-Nc-5P6">
-                                <rect key="frame" x="20" y="107" width="335" height="30"/>
+                                <rect key="frame" x="20" y="570" width="335" height="30"/>
                                 <state key="normal" title="BGMを追加せずに作成(リアル音声)"/>
                                 <connections>
                                     <action selector="addNoMusicBtnTap:" destination="ORW-C7-edv" eventType="touchUpInside" id="Vm7-iG-yPX"/>
@@ -260,8 +276,17 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="x8C-ST-vm7" firstAttribute="leading" secondItem="Ecs-RH-Rrj" secondAttribute="leadingMargin" id="2xZ-lH-eOH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="x8C-ST-vm7" secondAttribute="trailing" id="9LC-3V-NMo"/>
+                            <constraint firstItem="sLA-R5-BcI" firstAttribute="top" secondItem="G6Z-3m-wxK" secondAttribute="bottom" constant="20" id="bTl-G4-RZN"/>
+                            <constraint firstItem="x8C-ST-vm7" firstAttribute="top" secondItem="sLA-R5-BcI" secondAttribute="bottom" constant="20" id="k5J-T1-ZxE"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="addNoMusicBtn" destination="E1P-Nc-5P6" id="HIL-dR-pTZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMI-n3-qca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -344,7 +369,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="shrimp" width="64" height="64"/>
+        <image name="document" width="512" height="512"/>
         <image name="video" width="256" height="256"/>
     </resources>
 </document>

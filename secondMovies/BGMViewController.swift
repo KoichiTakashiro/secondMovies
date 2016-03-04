@@ -13,6 +13,7 @@ import AssetsLibrary
 class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     let cameraEngine = CameraEngine()
+    @IBOutlet weak var addNoMusicBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -226,6 +227,30 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
                 print("cancelled \(assetExport.error)")
             default:
                 print("complete")
+                let assetsLib = ALAssetsLibrary()
+                assetsLib.writeVideoAtPathToSavedPhotosAlbum(savePathUrl, completionBlock: {
+                    (nsurl, error) -> Void in
+                    Logger.log("Transfer video to library finished.")
+                    print("BGMありの特定のビデオをカメラロールに保存")
+                    //self.deleteFiles()
+                    //保存済みデータの削除
+                    //            let manager = NSFileManager()
+                    //
+                    //            let movieFilePath:String = String(moviePathUrl)
+                    //            let saveFilePath : String = String(savePathUrl)
+                    //            if movieFilePath != "" && saveFilePath != "" {
+                    //                do {
+                    //                    try manager.removeItemAtPath(movieFilePath)
+                    //                    try manager.removeItemAtPath(saveFilePath)
+                    //                    print("documents内のファイル削除")
+                    //                    
+                    //                } catch {
+                    //                    print("error")
+                    //                }
+                    //            }
+                })
+                var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
+                self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
             }
             //self.performSegueWithIdentifier("previewSegue", sender: self)
 ///////ここでデータ消えている
@@ -233,31 +258,9 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         print("\(self.cameraEngine.fileIndex)")
         })
         
-        let assetsLib = ALAssetsLibrary()
-        assetsLib.writeVideoAtPathToSavedPhotosAlbum(savePathUrl, completionBlock: {
-            (nsurl, error) -> Void in
-            Logger.log("Transfer video to library finished.")
-            print("BGMありの特定のビデオをカメラロールに保存")
-            //self.deleteFiles()
-            //保存済みデータの削除
-//            let manager = NSFileManager()
-//            
-//            let movieFilePath:String = String(moviePathUrl)
-//            let saveFilePath : String = String(savePathUrl)
-//            if movieFilePath != "" && saveFilePath != "" {
-//                do {
-//                    try manager.removeItemAtPath(movieFilePath)
-//                    try manager.removeItemAtPath(saveFilePath)
-//                    print("documents内のファイル削除")
-//                    
-//                } catch {
-//                    print("error")
-//                }
-//            }
-        })
         
-        var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
-        self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+        
+        
         
         
     }
