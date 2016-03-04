@@ -60,7 +60,7 @@ class recordViewController: UIViewController {
         dispatch_async_global {
             //バックグラウンドスレッド
             //時間のかかる処理
-            self.waitAtleast(3.0) {
+            self.waitAtleast(4.0) {
                 self.cameraEngine.startup()
             }
             //メインスレッド
@@ -315,7 +315,7 @@ class recordViewController: UIViewController {
     //timerカウント関数
     func update() {
         //３０秒制限の場合は3001、一時的に601に設定
-        if cnt == 601 {
+        if cnt == 3001 {
             //３０秒到達時に自動的に次へ飛ばす
             if self.cameraEngine.isCapturing {
                 self.cameraEngine.stop()
