@@ -49,16 +49,18 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
                 do {
                     try manager.removeItemAtPath(movieFilePath)
                     print("documents内のファイル削除")
+                    var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
+                    self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+
                     
                 } catch {
                     print(error)
                 }
             }
+            
 
         })
         
-        var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
-        self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
         
 
     }
@@ -245,25 +247,28 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
                     (nsurl, error) -> Void in
                     Logger.log("Transfer video to library finished.")
                     print("BGMありの特定のビデオをカメラロールに保存")
-                    //self.deleteFiles()
-                    //保存済みデータの削除
-                    let manager = NSFileManager()
-                    
-                    let movieFilePath:String = String(moviePathUrl)
-                    let saveFilePath : String = String(savePathUrl)
-                    if movieFilePath != "" && saveFilePath != "" {
-                        do {
-                            try manager.removeItemAtPath(movieFilePath)
-                            try manager.removeItemAtPath(saveFilePath)
-                            print("documents内のファイル削除")
-                            
-                        } catch {
-                            print("error")
-                        }
-                    }
+                    self.deleteFiles()
+//                    //保存済みデータの削除
+//                    let manager = NSFileManager()
+//                    
+//                    let movieFilePath:String = String(moviePathUrl)
+//                    let saveFilePath : String = String(savePathUrl)
+//                    if movieFilePath != "" && saveFilePath != "" {
+//                        do {
+//                            try manager.removeItemAtPath(movieFilePath)
+//                            try manager.removeItemAtPath(saveFilePath)
+//                            print("documents内のファイル削除")
+                            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
+                            self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+//
+//                            
+//                        } catch {
+//                            print("error")
+//                        }
+//                    }
+//                    
                 })
-                var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
-                self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+                
             }
             //self.performSegueWithIdentifier("previewSegue", sender: self)
 ///////ここでデータ消えている
