@@ -40,10 +40,21 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         assetsLib.writeVideoAtPathToSavedPhotosAlbum(filePathUrl, completionBlock: {
             (nsurl, error) -> Void in
             Logger.log("Transfer video to library finished.")
-            self.cameraEngine.fileIndex++
             print("ファイルインデックスは\(self.cameraEngine.fileIndex)")
             print("BGMなしでカメラロールに保存")
             //self.deleteFiles()
+            let movieFilePath = self.cameraEngine.filePath()
+            let manager = NSFileManager()
+            if movieFilePath != "" {
+                do {
+                    try manager.removeItemAtPath(movieFilePath)
+                    print("documents内のファイル削除")
+                    
+                } catch {
+                    print(error)
+                }
+            }
+
         })
         
         var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
@@ -165,7 +176,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
                 try manager.removeItemAtPath(filePath)
                 print("documents内のファイル削除")
                 
-            } catch {
+            } catch let error as NSError {
                 print("error")
             }
         }
@@ -234,20 +245,20 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
                     print("BGMありの特定のビデオをカメラロールに保存")
                     //self.deleteFiles()
                     //保存済みデータの削除
-                    //            let manager = NSFileManager()
-                    //
-                    //            let movieFilePath:String = String(moviePathUrl)
-                    //            let saveFilePath : String = String(savePathUrl)
-                    //            if movieFilePath != "" && saveFilePath != "" {
-                    //                do {
-                    //                    try manager.removeItemAtPath(movieFilePath)
-                    //                    try manager.removeItemAtPath(saveFilePath)
-                    //                    print("documents内のファイル削除")
-                    //                    
-                    //                } catch {
-                    //                    print("error")
-                    //                }
-                    //            }
+                    let manager = NSFileManager()
+                    
+                    let movieFilePath:String = String(moviePathUrl)
+                    let saveFilePath : String = String(savePathUrl)
+                    if movieFilePath != "" && saveFilePath != "" {
+                        do {
+                            try manager.removeItemAtPath(movieFilePath)
+                            try manager.removeItemAtPath(saveFilePath)
+                            print("documents内のファイル削除")
+                            
+                        } catch {
+                            print("error")
+                        }
+                    }
                 })
                 var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
                 self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
