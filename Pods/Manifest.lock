@@ -1,10 +1,13 @@
 PODS:
+  - Google-Mobile-Ads-SDK (7.7.0)
   - SVProgressHUD (1.1)
 
 DEPENDENCIES:
+  - Google-Mobile-Ads-SDK (~> 7.0)
   - SVProgressHUD
 
 SPEC CHECKSUMS:
+  Google-Mobile-Ads-SDK: d290e523a6e2f223256abcbf8e0c778b55b1f04e
   SVProgressHUD: 54de4d9ab38aa3f688da401f5766a5738084e7fb
 
 COCOAPODS: 0.39.0
