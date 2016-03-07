@@ -160,10 +160,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lET-E0-veu">
-                                <rect key="frame" x="235" y="577" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -229,27 +225,33 @@
                                             <rect key="frame" x="0.0" y="0.0" width="349" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GpY-ek-iXW">
-                                                    <rect key="frame" x="242" y="7" width="30" height="30"/>
-                                                    <state key="normal" title="再生"/>
-                                                    <connections>
-                                                        <action selector="soundBtnTap:" destination="ORW-C7-edv" eventType="touchUpInside" id="LdQ-Uv-hPg"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="音楽名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwA-0a-fe2">
                                                     <rect key="frame" x="10" y="11" width="179" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxz-XD-ZnQ">
-                                                    <rect key="frame" x="313" y="7" width="30" height="30"/>
+                                                <button opaque="NO" tag="3" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxz-XD-ZnQ">
+                                                    <rect key="frame" x="274" y="7" width="55" height="30"/>
                                                     <state key="normal" title="決定"/>
                                                     <connections>
                                                         <action selector="addMusicBtnTap:" destination="ORW-C7-edv" eventType="touchUpInside" id="eGr-Sc-jGr"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GpY-ek-iXW">
+                                                    <rect key="frame" x="227" y="7" width="30" height="30"/>
+                                                    <state key="normal" title="再生"/>
+                                                    <connections>
+                                                        <action selector="soundBtnTap:" destination="ORW-C7-edv" eventType="touchUpInside" id="LdQ-Uv-hPg"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xxz-XD-ZnQ" firstAttribute="leading" secondItem="GpY-ek-iXW" secondAttribute="trailing" constant="20" id="NZx-s9-2ex"/>
+                                                <constraint firstItem="xxz-XD-ZnQ" firstAttribute="leading" secondItem="GpY-ek-iXW" secondAttribute="trailing" constant="10" id="URB-GK-609"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="xxz-XD-ZnQ" secondAttribute="trailing" constant="10" id="g57-VV-3M1"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="xxz-XD-ZnQ" secondAttribute="trailing" constant="15" id="hRH-wr-Tql"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -265,7 +267,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1P-Nc-5P6">
-                                <rect key="frame" x="16" y="513" width="343" height="30"/>
+                                <rect key="frame" x="16" y="513" width="343" height="50"/>
                                 <color key="backgroundColor" red="0.8666666666666667" green="0.37647058823529411" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="リアル音声で作成（BGMなし）"/>
@@ -338,6 +340,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="シェア" id="1sy-qQ-VWR"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="toTopBtn" destination="BIN-ka-RM3" id="Z6Z-iH-Nt2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLI-i0-TzW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kXr-ZW-Wen" userLabel="Exit" sceneMemberID="exit"/>

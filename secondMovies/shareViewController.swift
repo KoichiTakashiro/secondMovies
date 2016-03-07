@@ -20,11 +20,13 @@ class shareViewController: UIViewController {
     var filePath = ""
     var firstFilePath = ""
 
+    @IBOutlet weak var toTopBtn: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        toTopBtn.backgroundColor = UIColor.whiteColor()
+        toTopBtn.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        toTopBtn.layer.cornerRadius = 5
     }
     
     override func didReceiveMemoryWarning() {

@@ -16,8 +16,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
     @IBOutlet weak var addNoMusicBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        addNoMusicBtn.layer.cornerRadius = 5
     }
     @IBOutlet weak var playbackBtn: UIButton!
     @IBOutlet weak var addMusicBtn: UIButton!
@@ -72,8 +71,6 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
     
     var musicList:[NSDictionary] =
     [
-        ["name":"battle", "fileName":"battle"],
-        ["name":"jazz", "fileName":"jazz"],
         ["name":"drumroll", "fileName":"drumroll"],
         ["name":"pinch", "fileName":"pinch"]
         
@@ -98,13 +95,15 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         var musicLabel = cell.viewWithTag(1) as! UILabel
         musicLabel.text = musicList[indexPath.row]["name"] as! String
         var playbackBtn = cell.viewWithTag(2) as! UIButton
-        playbackBtn.setTitle("▶", forState: .Normal)
+        playbackBtn.setTitle("再生", forState: .Normal)
         playbackBtn.tag = 100 + indexPath.row + 1
         var addMusicBtn = cell.viewWithTag(3) as! UIButton
         addMusicBtn.setTitle("決定", forState: .Normal)
         addMusicBtn.tag = 100 + indexPath.row + 1
         addMusicBtn.backgroundColor = UIColor(red: 245/255, green: 108/255, blue: 102/255, alpha: 1)
         tableView.scrollEnabled = false
+        addMusicBtn.layer.cornerRadius = 5
+        addMusicBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
 
         return cell
     }
@@ -131,7 +130,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
                 //動作部分
                 musicPlayer = try AVAudioPlayer(contentsOfURL: music_data)
                 musicPlayer.play()
-                sender.setTitle("S", forState: .Normal)
+                sender.setTitle("停止", forState: .Normal)
                 isPlaying = true
             }catch let error as NSError {
                 //エラーをキャッチした場合
@@ -143,7 +142,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
             print("再生ボタンタップ")
         } else {
             musicPlayer.stop()
-            sender.setTitle("▶", forState: .Normal)
+            sender.setTitle("再生", forState: .Normal)
             isPlaying = false
             
         }
