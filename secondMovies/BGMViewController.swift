@@ -97,6 +97,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         addMusicBtn.setTitle("決定", forState: .Normal)
         addMusicBtn.tag = 100 + indexPath.row + 1
         addMusicBtn.backgroundColor = UIColor(red: 245/255, green: 108/255, blue: 102/255, alpha: 1)
+        tableView.scrollEnabled = false
 
         return cell
     }
