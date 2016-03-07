@@ -337,8 +337,12 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIN-ka-RM3">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIN-ka-RM3">
                                 <rect key="frame" x="152" y="212" width="71" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="nAQ-iu-XN9"/>
+                                </constraints>
                                 <state key="normal" title="Topへ戻る"/>
                                 <connections>
                                     <segue destination="kXr-ZW-Wen" kind="unwind" unwindAction="backWithSegue:" id="ugq-kF-h2d"/>
@@ -350,7 +354,9 @@
                             <constraint firstItem="KKv-yO-SCg" firstAttribute="top" secondItem="Ivm-qj-Upp" secondAttribute="bottom" constant="100" id="0rS-mx-T0m"/>
                             <constraint firstItem="KKv-yO-SCg" firstAttribute="centerX" secondItem="Wkk-hW-fPW" secondAttribute="centerX" id="EBH-xI-09i"/>
                             <constraint firstItem="BIN-ka-RM3" firstAttribute="centerX" secondItem="Wkk-hW-fPW" secondAttribute="centerX" id="Sif-F6-0bK"/>
+                            <constraint firstItem="BIN-ka-RM3" firstAttribute="leading" secondItem="Wkk-hW-fPW" secondAttribute="leadingMargin" constant="10" id="aKH-uC-Zi0"/>
                             <constraint firstItem="BIN-ka-RM3" firstAttribute="top" secondItem="KKv-yO-SCg" secondAttribute="bottom" constant="50" id="gOL-Vr-9Xo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BIN-ka-RM3" secondAttribute="trailing" constant="10" id="ilC-9n-l6g"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="シェア" id="1sy-qQ-VWR"/>
