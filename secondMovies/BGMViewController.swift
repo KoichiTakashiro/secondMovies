@@ -30,6 +30,15 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
     
     //BGMを追加せずに動画を保存
     @IBAction func addNoMusicBtnTap(sender: UIButton) {
+        if isPlaying == false {
+            addNoMusic()
+        }else{
+            musicPlayer.stop()
+            addNoMusic()
+        }
+    }
+    
+    func addNoMusic(){
         let assetsLib = ALAssetsLibrary()
         let filePathUrl:NSURL = cameraEngine.filePathUrl()
         print(filePathUrl)
@@ -51,17 +60,13 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
                     print("documents内のファイル削除")
                     var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
                     self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
-
+                    
                     
                 } catch {
                     print(error)
                 }
             }
-            
-
         })
-        
-        
 
     }
     
@@ -115,24 +120,34 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
 
     //BGM再生の準備
     var musicPlayer:AVAudioPlayer!
+    var isPlaying = false
 
     @IBAction func soundBtnTap(sender: UIButton) {
         var musicName = musicList[sender.tag-101]["fileName"] as! String
         print("選択した音楽は\(musicList[sender.tag-101]["name"])")
-        
-        let music_data = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(musicName, ofType: "mp3")!)
-        do {
-            //動作部分
-            musicPlayer = try AVAudioPlayer(contentsOfURL: music_data)
-            musicPlayer.play()
-        }catch let error as NSError {
-            //エラーをキャッチした場合
-            print(error)
+        if isPlaying == false {
+            let music_data = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(musicName, ofType: "mp3")!)
+            do {
+                //動作部分
+                musicPlayer = try AVAudioPlayer(contentsOfURL: music_data)
+                musicPlayer.play()
+                sender.setTitle("S", forState: .Normal)
+                isPlaying = true
+            }catch let error as NSError {
+                //エラーをキャッチした場合
+                print(error)
+            }
+            
+            //        bgmPlay()
+            print("サンプル音再生")
+            print("再生ボタンタップ")
+        } else {
+            musicPlayer.stop()
+            sender.setTitle("▶", forState: .Normal)
+            isPlaying = false
+            
         }
-        
-//        bgmPlay()
-        print("サンプル音再生")
-        print("再生ボタンタップ")
+            
     }
 //    func bgmPlay(musicName:String) {
 //
@@ -157,8 +172,13 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         print(moviePathUrl)
         print(savePathUrl)
         
-        mergeAudio(audioURL, moviePathUrl: moviePathUrl, savePathUrl: savePathUrl)
-        
+        if isPlaying == false {
+            mergeAudio(audioURL, moviePathUrl: moviePathUrl, savePathUrl: savePathUrl)
+        } else {
+            musicPlayer.stop()
+            mergeAudio(audioURL, moviePathUrl: moviePathUrl, savePathUrl: savePathUrl)
+            
+        }        
         print("ファイルマージしたつもり")
         
         //        var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
