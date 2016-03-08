@@ -21,22 +21,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r1O-KV-EBR">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHw-YR-7ov">
-                                        <rect key="frame" x="133" y="413" width="109" height="104"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkA-Yz-qDq">
+                                        <rect key="frame" x="138" y="370" width="100" height="100"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="YBK-bz-fbP"/>
-                                            <constraint firstAttribute="height" constant="120" id="ekM-V6-XtM"/>
-                                        </constraints>
-                                        <state key="normal" title="作成" image="video"/>
-                                        <connections>
-                                            <segue destination="TQ4-B1-KOw" kind="push" id="Wyl-eD-E5y"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkA-Yz-qDq">
-                                        <rect key="frame" x="128" y="158" width="119" height="120"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="STD-4W-d8T"/>
-                                            <constraint firstAttribute="width" constant="100" id="ymd-9J-gMf"/>
+                                            <constraint firstAttribute="height" constant="100" id="PaY-VW-T2A"/>
+                                            <constraint firstAttribute="width" constant="100" id="d4c-K4-prX"/>
                                         </constraints>
                                         <state key="normal" image="document">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -45,13 +34,24 @@
                                             <segue destination="ZWN-9c-gDv" kind="push" id="Lzz-jS-tvi"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHw-YR-7ov">
+                                        <rect key="frame" x="128" y="150" width="120" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="6JF-8G-5g4"/>
+                                            <constraint firstAttribute="height" constant="120" id="sDN-Sv-qhR"/>
+                                        </constraints>
+                                        <state key="normal" title="作成" image="video"/>
+                                        <connections>
+                                            <segue destination="TQ4-B1-KOw" kind="push" id="Wyl-eD-E5y"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.46666666670000001" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="SkA-Yz-qDq" firstAttribute="top" secondItem="r1O-KV-EBR" secondAttribute="top" constant="158" id="Tkb-eb-T9z"/>
-                                    <constraint firstItem="SkA-Yz-qDq" firstAttribute="centerX" secondItem="r1O-KV-EBR" secondAttribute="centerX" id="Zua-dJ-gdu"/>
-                                    <constraint firstItem="MHw-YR-7ov" firstAttribute="top" secondItem="SkA-Yz-qDq" secondAttribute="bottom" constant="120" id="mSU-de-lQL"/>
-                                    <constraint firstItem="MHw-YR-7ov" firstAttribute="centerX" secondItem="r1O-KV-EBR" secondAttribute="centerX" id="yu0-Ut-u1Q"/>
+                                    <constraint firstItem="MHw-YR-7ov" firstAttribute="top" secondItem="r1O-KV-EBR" secondAttribute="top" constant="150" id="6eA-kG-AHV"/>
+                                    <constraint firstItem="SkA-Yz-qDq" firstAttribute="centerX" secondItem="r1O-KV-EBR" secondAttribute="centerX" id="JpE-Y0-Xue"/>
+                                    <constraint firstItem="MHw-YR-7ov" firstAttribute="centerX" secondItem="r1O-KV-EBR" secondAttribute="centerX" id="NaK-Lr-cCb"/>
+                                    <constraint firstItem="SkA-Yz-qDq" firstAttribute="top" secondItem="MHw-YR-7ov" secondAttribute="bottom" constant="100" id="c1o-61-8rb"/>
                                 </constraints>
                             </view>
                         </subviews>
