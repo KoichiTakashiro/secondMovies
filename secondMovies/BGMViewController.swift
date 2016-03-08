@@ -185,6 +185,8 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
             
         }        
         print("ファイルマージしたつもり")
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+        print("タイマー呼び出したはず")
         
         //        var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
         //        self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
@@ -273,6 +275,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
                     Logger.log("Transfer video to library finished.")
                     print("BGMありの特定のビデオをカメラロールに保存")
                     self.deleteFiles()
+                    
 //                    //保存済みデータの削除
 //                    let manager = NSFileManager()
 //                    
@@ -283,8 +286,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
 //                            try manager.removeItemAtPath(movieFilePath)
 //                            try manager.removeItemAtPath(saveFilePath)
 //                            print("documents内のファイル削除")
-                            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
-                            self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+                    
 //
 //                            
 //                        } catch {
@@ -300,12 +302,43 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         print("ファイルマージ最後までいった")
         print("\(self.cameraEngine.fileIndex)")
         })
+
         
-        
-        
-        
-        
-        
+    }
+    
+    func moveToShare(){
+        var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
+        self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+    }
+    //タイマーの作成
+    var timerLabel: UILabel!
+    var timer : NSTimer!
+    var cnt : Float = 0.00
+    var secCnt : Float = 0.00
+    var writingLabel: UILabel!
+    var status = "notWriting"
+    
+    func update() {
+        if cnt == 300{
+            moveToShare()
+            print("時間が来た")
+            timer.invalidate()
+        }else if status != "writing" {
+            self.writingLabel = UILabel(frame: CGRectMake(0,0,self.view.bounds.width,200))
+            self.writingLabel.text = "書き出し中。少々お待ち下さい！"
+            self.writingLabel.textAlignment = NSTextAlignment.Center
+            self.writingLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+            self.writingLabel.textColor = UIColor.whiteColor()
+            self.writingLabel.font = UIFont.systemFontOfSize(20)
+            //self.recordLabel.frame = CGRectMake(0,0,300,100)
+            self.writingLabel.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height/2)
+            self.view.addSubview(self.writingLabel)
+            print("書き出し中")
+            status = "writing"
+            cnt++
+        }else {
+            cnt++
+        }
     }
 
     /*
