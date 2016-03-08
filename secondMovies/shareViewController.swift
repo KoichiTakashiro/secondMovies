@@ -10,6 +10,7 @@ import UIKit
 import Social
 import AVFoundation
 import AssetsLibrary
+import GoogleMobileAds
 
 class shareViewController: UIViewController {
     
@@ -19,6 +20,9 @@ class shareViewController: UIViewController {
     var videoWriter : VideoWriter?
     var filePath = ""
     var firstFilePath = ""
+    
+    @IBOutlet weak var bannerView: GADBannerView!
+    
 
     @IBOutlet weak var toTopBtn: UIButton!
 
@@ -27,6 +31,10 @@ class shareViewController: UIViewController {
         toTopBtn.backgroundColor = UIColor.whiteColor()
         toTopBtn.setTitleColor(UIColor.blueColor(), forState: .Normal)
         toTopBtn.layer.cornerRadius = 5
+        
+        self.bannerView.adUnitID = "ca-app-pub-3821570843157346/1587258511"
+        self.bannerView.rootViewController = self
+        self.bannerView.loadRequest(GADRequest())
     }
     
     override func didReceiveMemoryWarning() {

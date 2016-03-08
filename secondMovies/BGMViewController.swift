@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import AssetsLibrary
+import GoogleMobileAds
 
 class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
@@ -17,10 +18,15 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         addNoMusicBtn.layer.cornerRadius = 5
+        
+        self.bannerView.adUnitID = "ca-app-pub-3821570843157346/8382168516"
+        self.bannerView.rootViewController = self
+        self.bannerView.loadRequest(GADRequest())
     }
     @IBOutlet weak var playbackBtn: UIButton!
     @IBOutlet weak var addMusicBtn: UIButton!
 
+    @IBOutlet weak var bannerView: GADBannerView!
    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

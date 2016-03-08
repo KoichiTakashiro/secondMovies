@@ -270,11 +270,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1P-Nc-5P6">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1P-Nc-5P6">
                                 <rect key="frame" x="16" y="513" width="343" height="50"/>
                                 <color key="backgroundColor" red="0.8666666666666667" green="0.37647058823529411" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Una-Mj-Rz9"/>
+                                    <constraint firstAttribute="height" constant="50" id="PPG-56-50A"/>
                                 </constraints>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="リアル音声で作成（BGMなし）"/>
@@ -282,26 +282,36 @@
                                     <action selector="addNoMusicBtnTap:" destination="ORW-C7-edv" eventType="touchUpInside" id="Vm7-iG-yPX"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LlF-JV-kyo" customClass="GADBannerView">
+                                <rect key="frame" x="28" y="607" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2my-EA-bfs"/>
+                                    <constraint firstAttribute="width" constant="320" id="ruX-rT-d3e"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="x8C-ST-vm7" firstAttribute="leading" secondItem="Ecs-RH-Rrj" secondAttribute="leading" constant="10" id="5X9-xw-VgP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="x8C-ST-vm7" secondAttribute="trailing" id="6Fg-P5-V3d"/>
-                            <constraint firstItem="E1P-Nc-5P6" firstAttribute="centerX" secondItem="Ecs-RH-Rrj" secondAttribute="centerX" id="GLC-AL-8xg"/>
                             <constraint firstItem="x8C-ST-vm7" firstAttribute="top" secondItem="sLA-R5-BcI" secondAttribute="bottom" constant="20" id="JmS-cT-sKJ"/>
+                            <constraint firstItem="LlF-JV-kyo" firstAttribute="centerX" secondItem="Ecs-RH-Rrj" secondAttribute="centerX" id="JzD-r7-JeL"/>
                             <constraint firstItem="x8C-ST-vm7" firstAttribute="leading" secondItem="Ecs-RH-Rrj" secondAttribute="leadingMargin" id="LHd-cT-YHe"/>
+                            <constraint firstItem="E1P-Nc-5P6" firstAttribute="leading" secondItem="Ecs-RH-Rrj" secondAttribute="leadingMargin" constant="20" id="NmT-1t-gpG"/>
+                            <constraint firstItem="Ei3-DE-L7h" firstAttribute="top" secondItem="LlF-JV-kyo" secondAttribute="bottom" constant="10" id="Pic-5r-nv1"/>
                             <constraint firstItem="x8C-ST-vm7" firstAttribute="centerX" secondItem="Ecs-RH-Rrj" secondAttribute="centerX" id="Quj-hA-MT5"/>
                             <constraint firstItem="sLA-R5-BcI" firstAttribute="top" secondItem="G6Z-3m-wxK" secondAttribute="bottom" constant="20" id="TZM-Kp-PWW"/>
                             <constraint firstAttribute="trailing" secondItem="x8C-ST-vm7" secondAttribute="trailing" constant="10" id="gWG-0b-5Gt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="E1P-Nc-5P6" secondAttribute="trailing" constant="10" id="sBt-e2-cfw"/>
-                            <constraint firstItem="E1P-Nc-5P6" firstAttribute="leading" secondItem="Ecs-RH-Rrj" secondAttribute="leadingMargin" constant="10" id="uK5-yr-ySA"/>
-                            <constraint firstItem="Ei3-DE-L7h" firstAttribute="top" secondItem="E1P-Nc-5P6" secondAttribute="bottom" constant="50" id="wlE-A5-nSo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="E1P-Nc-5P6" secondAttribute="trailing" constant="20" id="ksG-yz-t8a"/>
+                            <constraint firstItem="E1P-Nc-5P6" firstAttribute="top" secondItem="x8C-ST-vm7" secondAttribute="bottom" constant="36" id="vl0-y1-dKH"/>
                             <constraint firstItem="sLA-R5-BcI" firstAttribute="centerX" secondItem="Ecs-RH-Rrj" secondAttribute="centerX" id="zZC-3B-LH9"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="addNoMusicBtn" destination="E1P-Nc-5P6" id="HIL-dR-pTZ"/>
+                        <outlet property="bannerView" destination="LlF-JV-kyo" id="Zg3-Je-UK9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMI-n3-qca" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -348,20 +358,31 @@
                                     <segue destination="kXr-ZW-Wen" kind="unwind" unwindAction="backWithSegue:" id="ugq-kF-h2d"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9T-36-WhB" customClass="GADBannerView">
+                                <rect key="frame" x="28" y="607" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="Eev-k8-WOr"/>
+                                    <constraint firstAttribute="height" constant="50" id="Xsg-Mk-rr4"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.90196078430000004" green="0.46666666670000001" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="KKv-yO-SCg" firstAttribute="top" secondItem="Ivm-qj-Upp" secondAttribute="bottom" constant="100" id="0rS-mx-T0m"/>
                             <constraint firstItem="KKv-yO-SCg" firstAttribute="centerX" secondItem="Wkk-hW-fPW" secondAttribute="centerX" id="EBH-xI-09i"/>
                             <constraint firstItem="BIN-ka-RM3" firstAttribute="centerX" secondItem="Wkk-hW-fPW" secondAttribute="centerX" id="Sif-F6-0bK"/>
+                            <constraint firstItem="D9T-36-WhB" firstAttribute="centerX" secondItem="Wkk-hW-fPW" secondAttribute="centerX" id="UQm-9J-mq2"/>
                             <constraint firstItem="BIN-ka-RM3" firstAttribute="leading" secondItem="Wkk-hW-fPW" secondAttribute="leadingMargin" constant="10" id="aKH-uC-Zi0"/>
                             <constraint firstItem="BIN-ka-RM3" firstAttribute="top" secondItem="KKv-yO-SCg" secondAttribute="bottom" constant="50" id="gOL-Vr-9Xo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BIN-ka-RM3" secondAttribute="trailing" constant="10" id="ilC-9n-l6g"/>
+                            <constraint firstItem="C9a-QU-n6d" firstAttribute="top" secondItem="D9T-36-WhB" secondAttribute="bottom" constant="10" id="msM-3T-HWb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="シェア" id="1sy-qQ-VWR"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="bannerView" destination="D9T-36-WhB" id="CCh-5V-Ydc"/>
                         <outlet property="toTopBtn" destination="BIN-ka-RM3" id="Z6Z-iH-Nt2"/>
                     </connections>
                 </viewController>
