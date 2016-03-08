@@ -27,8 +27,7 @@ class recordViewController: UIViewController {
     var cnt : Float = 0.00
     var secCnt : Float = 0.00
     
-    //スライダーの設置
-    let myGreenSlider = UISlider(frame: CGRectMake(0, 0, 300, 10))
+    
     
     //効果音の準備
     var musicPlayer:AVAudioPlayer!
@@ -138,7 +137,7 @@ class recordViewController: UIViewController {
         self.cameraBtn.layer.masksToBounds = true
         //self.cameraBtn.setTitle("Go", forState: .Normal)
         //self.cameraBtn.layer.cornerRadius = 15.0
-        self.cameraBtn.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-40)
+        self.cameraBtn.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-50)
         self.cameraBtn.addTarget(self, action: "cameraBtnTap:", forControlEvents: .TouchUpInside)
         let image = UIImage(named: "record")! as UIImage
         self.cameraBtn.setImage(image, forState: .Normal)
@@ -190,10 +189,12 @@ class recordViewController: UIViewController {
         self.view.addSubview(timerLabel)
     }
     
+    var myGreenSlider = UISlider(frame: CGRectMake(0, 0, 0, 0))
     func setupSlider() {
         // Sliderを作成する.
-        
-        myGreenSlider.layer.position = CGPointMake(self.view.frame.midX, 550)
+        //スライダーの設置
+        myGreenSlider = UISlider(frame: CGRectMake(-10, self.view.bounds.height-120, self.view.bounds.width+10, 30))
+        //myGreenSlider.layer.position = CGPointMake(-10, self.view.bounds.height-100)
         //myGreenSlider.backgroundColor = UIColor.whiteColor()
         myGreenSlider.layer.cornerRadius = 0.0
         myGreenSlider.layer.shadowOpacity = 0.5
