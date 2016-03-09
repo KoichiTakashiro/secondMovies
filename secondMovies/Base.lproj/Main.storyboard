@@ -326,6 +326,7 @@
                     <connections>
                         <outlet property="addNoMusicBtn" destination="E1P-Nc-5P6" id="HIL-dR-pTZ"/>
                         <outlet property="bannerView" destination="LlF-JV-kyo" id="Zg3-Je-UK9"/>
+                        <outlet property="myTableView" destination="x8C-ST-vm7" id="hzl-Lz-h4c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMI-n3-qca" userLabel="First Responder" sceneMemberID="firstResponder"/>

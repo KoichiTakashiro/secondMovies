@@ -25,6 +25,10 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
     }
     @IBOutlet weak var playbackBtn: UIButton!
     @IBOutlet weak var addMusicBtn: UIButton!
+    @IBOutlet weak var myTableView: UITableView!
+    
+    
+    var playingMusic:Int?
 
     @IBOutlet weak var bannerView: GADBannerView!
    
@@ -111,7 +115,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         playbackBtn.tag = 100 + indexPath.row + 1
         var addMusicBtn = cell.viewWithTag(3) as! UIButton
         addMusicBtn.setTitle("決定", forState: .Normal)
-        addMusicBtn.tag = 100 + indexPath.row + 1
+        addMusicBtn.tag = 200 + indexPath.row + 1
         addMusicBtn.backgroundColor = UIColor(red: 245/255, green: 108/255, blue: 102/255, alpha: 1)
         tableView.scrollEnabled = false
         addMusicBtn.layer.cornerRadius = 5
@@ -137,7 +141,9 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         var musicName = musicList[sender.tag-101]["fileName"] as! String
         print("選択した音楽は\(musicList[sender.tag-101]["name"])")
         if isPlaying == false {
+            playingMusic = sender.tag
             let music_data = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(musicName, ofType: "mp3")!)
+            
             do {
                 //動作部分
                 musicPlayer = try AVAudioPlayer(contentsOfURL: music_data)
@@ -153,10 +159,29 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
             print("サンプル音再生")
             print("再生ボタンタップ")
         } else {
-            musicPlayer.stop()
-            sender.setTitle("再生", forState: .Normal)
-            isPlaying = false
-            
+            if sender.tag == playingMusic {
+                musicPlayer.stop()
+                var btn = myTableView.viewWithTag(self.playingMusic!) as! UIButton
+                btn.setTitle("再生", forState: .Normal)
+                isPlaying = false
+            } else {
+                var btn = myTableView.viewWithTag(self.playingMusic!) as! UIButton
+                btn.setTitle("再生", forState: .Normal)
+
+                playingMusic = sender.tag
+                let music_data = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(musicName, ofType: "mp3")!)
+                do {
+                    //動作部分
+                    musicPlayer = try AVAudioPlayer(contentsOfURL: music_data)
+                    musicPlayer.play()
+                    sender.setTitle("停止", forState: .Normal)
+                    isPlaying = true
+                }catch let error as NSError {
+                    //エラーをキャッチした場合
+                    print(error)
+                }
+
+            }
         }
             
     }
@@ -168,7 +193,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         var audioURL:NSURL
         var moviePathUrl:NSURL
         var savePathUrl:NSURL
-        var musicName = musicList[sender.tag-101]["fileName"] as! String
+        var musicName = musicList[sender.tag-201]["fileName"] as! String
         print("musicNameは\(musicName)")
         
         audioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(musicName, ofType: "mp3")!)
