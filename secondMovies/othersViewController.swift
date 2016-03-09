@@ -11,9 +11,10 @@ import UIKit
 class othersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     var menu:[NSDictionary] = [
-        ["name":"アプリバージョン","detail":"ご使用中のアプリはバージョン1.0です"],
-        ["name":"利用規約","detail":"特に規約は定めておりません。お客様自身でモラルについてしっかり考えた上でご使用お願い致します。"],
-        ["name":"作者の想い","detail":"みなさま。本アプリは気に入っていただけましたでしょうか？私自身まだまだ駆け出しのエンジニアのため、改善の余地はたくさんありますが、我が子のようなものです。"]
+        ["name":"アプリバージョン","detail":"ご使用中のアプリはバージョン 1.0 です"],
+        ["name":"アプリの使い方","detail":"アプリの使用方法はたった4ステップ!\n\n１．アプリを立ち上げて動画アイコンをタップ\n\n２．２秒の動画を１５コマ撮影する。\n※アプリを落とすと撮影中の動画が消えてしまうので、動画をカメラロールに保存するまでは、常にバックグラウンドで起動しておいてください。\n\n３．３０秒（１５コマ分）の動画撮影が完了するとBGM選択画面に進みます。BGMを追加したい場合は、BGMを選択してください。\n動画撮影時のリアル音声で動画を作成したい場合は、「リアル音声で作成」ボタンをタップしてください。\n※BGMを選択した場合、動画撮影時の音声は消えてしましまいます。\n４．動画の作成が完了しました。カメラロールをチェックしましょう！"],
+        ["name":"作者の想い","detail":"アプリをダンロードしていただきまして誠にありがとうございます。\n本アプリは気に入っていただけましたでしょうか？\n私自身まだまだ駆け出しのエンジニアのため、改善の余地はたくさんありますが、記念すべき1作目のアプリです。\n今後も皆様にご利用いただけるアプリをどんどん生み出していきますのでよろしくお願いします！！\n応援メッセージお待ちしております〜"],
+        ["name":"メッセージを送る","detail":"サービス改善のため、ご意見ご要望お待ちしております！\nsecondmovies2016@gmail.com"]
     ]
     
     var slectedIndex = -1
@@ -31,7 +32,7 @@ class othersViewController: UIViewController, UITableViewDataSource, UITableView
     
     //行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return menu.count
     }
     
     
