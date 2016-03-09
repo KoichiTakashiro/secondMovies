@@ -166,7 +166,7 @@ class recordViewController: UIViewController {
         self.recordLabel.textColor = UIColor.redColor()
         self.recordLabel.font = UIFont.systemFontOfSize(30)
         //self.recordLabel.frame = CGRectMake(0,0,300,100)
-        self.recordLabel.layer.position = CGPoint(x: self.view.bounds.width/4, y:100)
+        self.recordLabel.layer.position = CGPoint(x: self.view.bounds.width/4+10, y:100)
         self.view.addSubview(self.recordLabel)
 
     }

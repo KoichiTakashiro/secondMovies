@@ -160,14 +160,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="timer 00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhP-fu-Oqz">
-                                <rect key="frame" x="208" y="90" width="147" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="timer 00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhP-fu-Oqz">
+                                <rect key="frame" x="208" y="90" width="114" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="VhP-fu-Oqz" secondAttribute="trailing" constant="15" id="FfC-am-497"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="撮影" id="uIS-38-8EF"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -270,11 +273,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1P-Nc-5P6">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1P-Nc-5P6">
                                 <rect key="frame" x="16" y="513" width="343" height="50"/>
                                 <color key="backgroundColor" red="0.8666666666666667" green="0.37647058823529411" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="PPG-56-50A"/>
+                                    <constraint firstAttribute="height" constant="50" id="sB2-Un-HIC"/>
                                 </constraints>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="リアル音声で作成（BGMなし）"/>
@@ -293,18 +296,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="x8C-ST-vm7" firstAttribute="leading" secondItem="Ecs-RH-Rrj" secondAttribute="leading" constant="10" id="5X9-xw-VgP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="x8C-ST-vm7" secondAttribute="trailing" id="6Fg-P5-V3d"/>
-                            <constraint firstItem="x8C-ST-vm7" firstAttribute="top" secondItem="sLA-R5-BcI" secondAttribute="bottom" constant="20" id="JmS-cT-sKJ"/>
+                            <constraint firstItem="E1P-Nc-5P6" firstAttribute="top" secondItem="x8C-ST-vm7" secondAttribute="bottom" constant="15" id="1i7-cu-s8t"/>
+                            <constraint firstItem="x8C-ST-vm7" firstAttribute="top" secondItem="sLA-R5-BcI" secondAttribute="bottom" constant="15" id="7pW-N2-gkc"/>
+                            <constraint firstItem="E1P-Nc-5P6" firstAttribute="leading" secondItem="Ecs-RH-Rrj" secondAttribute="leading" constant="15" id="8tX-Gb-R0h"/>
                             <constraint firstItem="LlF-JV-kyo" firstAttribute="centerX" secondItem="Ecs-RH-Rrj" secondAttribute="centerX" id="JzD-r7-JeL"/>
-                            <constraint firstItem="x8C-ST-vm7" firstAttribute="leading" secondItem="Ecs-RH-Rrj" secondAttribute="leadingMargin" id="LHd-cT-YHe"/>
-                            <constraint firstItem="E1P-Nc-5P6" firstAttribute="leading" secondItem="Ecs-RH-Rrj" secondAttribute="leadingMargin" constant="20" id="NmT-1t-gpG"/>
                             <constraint firstItem="Ei3-DE-L7h" firstAttribute="top" secondItem="LlF-JV-kyo" secondAttribute="bottom" constant="10" id="Pic-5r-nv1"/>
-                            <constraint firstItem="x8C-ST-vm7" firstAttribute="centerX" secondItem="Ecs-RH-Rrj" secondAttribute="centerX" id="Quj-hA-MT5"/>
                             <constraint firstItem="sLA-R5-BcI" firstAttribute="top" secondItem="G6Z-3m-wxK" secondAttribute="bottom" constant="20" id="TZM-Kp-PWW"/>
-                            <constraint firstAttribute="trailing" secondItem="x8C-ST-vm7" secondAttribute="trailing" constant="10" id="gWG-0b-5Gt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="E1P-Nc-5P6" secondAttribute="trailing" constant="20" id="ksG-yz-t8a"/>
-                            <constraint firstItem="E1P-Nc-5P6" firstAttribute="top" secondItem="x8C-ST-vm7" secondAttribute="bottom" constant="36" id="vl0-y1-dKH"/>
+                            <constraint firstItem="LlF-JV-kyo" firstAttribute="top" secondItem="E1P-Nc-5P6" secondAttribute="bottom" constant="10" id="WXn-7d-Ff4"/>
+                            <constraint firstAttribute="trailing" secondItem="E1P-Nc-5P6" secondAttribute="trailing" constant="15" id="pkF-qE-zBi"/>
+                            <constraint firstItem="x8C-ST-vm7" firstAttribute="centerX" secondItem="Ecs-RH-Rrj" secondAttribute="centerX" id="roC-PU-KoM"/>
                             <constraint firstItem="sLA-R5-BcI" firstAttribute="centerX" secondItem="Ecs-RH-Rrj" secondAttribute="centerX" id="zZC-3B-LH9"/>
                         </constraints>
                     </view>

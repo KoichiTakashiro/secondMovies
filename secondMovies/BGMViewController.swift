@@ -77,12 +77,15 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
     
     var musicList:[NSDictionary] =
     [
-//        ["name":"drumroll", "fileName":"drumroll"],
         ["name":"ピンチ", "fileName":"pinch"],
-        ["name":"おすすめ", "fileName":"goodmorningsky"],
+        ["name":"おすすめ", "fileName":"goodmorningsky short"],
         ["name":"ジャズ", "fileName":"jazz2"],
         ["name":"アイドルオープニング", "fileName":"idol"],
         ["name":"ポジティブ", "fileName":"positive"],
+        ["name":"natural", "fileName":"natural"],
+        ["name":"newspace", "fileName":"newspace"],
+        ["name":"hero", "fileName":"hero"],
+        ["name":"wild", "fileName":"wild"]
         
         
     ]
