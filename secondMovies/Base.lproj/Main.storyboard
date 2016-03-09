@@ -134,20 +134,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="P7g-AJ-eYb">
-                                <rect key="frame" x="20" y="74" width="335" height="331"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="P7g-AJ-eYb">
+                                <rect key="frame" x="20" y="74" width="335" height="573"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.っっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっっｍ</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="P7g-AJ-eYb" firstAttribute="leading" secondItem="mvT-eR-Gc2" secondAttribute="leading" constant="20" id="5NM-as-sV6"/>
-                            <constraint firstItem="y5B-QZ-nnk" firstAttribute="top" secondItem="P7g-AJ-eYb" secondAttribute="bottom" constant="262" id="JWr-wL-Jw7"/>
-                            <constraint firstItem="P7g-AJ-eYb" firstAttribute="top" secondItem="fRT-IO-NYH" secondAttribute="bottom" constant="10" id="j42-9Y-ocM"/>
-                            <constraint firstAttribute="trailing" secondItem="P7g-AJ-eYb" secondAttribute="trailing" constant="20" id="skB-6Z-Hka"/>
+                            <constraint firstItem="P7g-AJ-eYb" firstAttribute="top" secondItem="fRT-IO-NYH" secondAttribute="bottom" constant="20" id="RhK-Yg-p41"/>
+                            <constraint firstAttribute="trailing" secondItem="P7g-AJ-eYb" secondAttribute="trailing" constant="20" id="SdN-lj-Jqe"/>
+                            <constraint firstItem="P7g-AJ-eYb" firstAttribute="leading" secondItem="mvT-eR-Gc2" secondAttribute="leading" constant="20" id="gi3-LU-Xba"/>
+                            <constraint firstItem="P7g-AJ-eYb" firstAttribute="centerX" secondItem="mvT-eR-Gc2" secondAttribute="centerX" id="xFs-ps-Zok"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wso-3j-9dp"/>
@@ -261,7 +261,9 @@
                                                 </button>
                                                 <button opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GpY-ek-iXW">
                                                     <rect key="frame" x="227" y="7" width="30" height="30"/>
-                                                    <state key="normal" title="再生"/>
+                                                    <state key="normal">
+                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="soundBtnTap:" destination="ORW-C7-edv" eventType="touchUpInside" id="LdQ-Uv-hPg"/>
                                                     </connections>

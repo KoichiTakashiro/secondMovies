@@ -84,9 +84,9 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         ["name":"万能型", "fileName":"goodmorningsky short"],
         ["name":"ボス戦風", "fileName":"pinch"],
         ["name":"Bar風", "fileName":"jazz2"],
-        ["name":"アイドルオープニング風", "fileName":"idol"],
+        ["name":"アイドル風", "fileName":"idol"],
         ["name":"旅立ち風", "fileName":"positive"],
-        ["name":"natural", "fileName":"natural"],
+        ["name":"黄昏時風", "fileName":"natural"],
         //["name":"newspace", "fileName":"newspace"],落ちる
         ["name":"IT企業CM風", "fileName":"hero"],
         //["name":"wild", "fileName":"wild"]落ちる
@@ -111,7 +111,10 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         var musicLabel = cell.viewWithTag(1) as! UILabel
         musicLabel.text = musicList[indexPath.row]["name"] as! String
         var playbackBtn = cell.viewWithTag(2) as! UIButton
-        playbackBtn.setTitle("再生", forState: .Normal)
+        //playbackBtn.setTitle("再生", forState: .Normal)
+        let image = UIImage(named: "musicPlay")! as UIImage
+        playbackBtn.setImage(image, forState: .Normal)
+        playbackBtn.setTitleColor(UIColor.blackColor(), forState: .Normal)
         playbackBtn.tag = 100 + indexPath.row + 1
         var addMusicBtn = cell.viewWithTag(3) as! UIButton
         addMusicBtn.setTitle("決定", forState: .Normal)
@@ -141,6 +144,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         var musicName = musicList[sender.tag-101]["fileName"] as! String
         print("選択した音楽は\(musicList[sender.tag-101]["name"])")
         if isPlaying == false {
+            //初回再生時と正常に停止した後
             playingMusic = sender.tag
             let music_data = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(musicName, ofType: "mp3")!)
             
@@ -148,7 +152,10 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
                 //動作部分
                 musicPlayer = try AVAudioPlayer(contentsOfURL: music_data)
                 musicPlayer.play()
-                sender.setTitle("停止", forState: .Normal)
+                var btn = myTableView.viewWithTag(self.playingMusic!) as! UIButton
+                let image = UIImage(named: "stopPlaying")! as UIImage
+                btn.setImage(image, forState: .Normal)
+                btn.setTitleColor(UIColor.blackColor(), forState: .Normal)
                 isPlaying = true
             }catch let error as NSError {
                 //エラーをキャッチした場合
@@ -162,20 +169,29 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
             if sender.tag == playingMusic {
                 musicPlayer.stop()
                 var btn = myTableView.viewWithTag(self.playingMusic!) as! UIButton
-                btn.setTitle("再生", forState: .Normal)
+                let image = UIImage(named: "musicPlay")! as UIImage
+                btn.setImage(image, forState: .Normal)
+                btn.setTitleColor(UIColor.blackColor(), forState: .Normal)
                 isPlaying = false
             } else {
+                //再生中に他の曲流すとここ
                 var btn = myTableView.viewWithTag(self.playingMusic!) as! UIButton
-                btn.setTitle("再生", forState: .Normal)
+                let image = UIImage(named: "musicPlay")! as UIImage
+                btn.setImage(image, forState: .Normal)
+                btn.setTitleColor(UIColor.blackColor(), forState: .Normal)
 
-                playingMusic = sender.tag
+                //playingMusic = sender.tag
                 let music_data = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(musicName, ofType: "mp3")!)
                 do {
                     //動作部分
                     musicPlayer = try AVAudioPlayer(contentsOfURL: music_data)
                     musicPlayer.play()
-                    sender.setTitle("停止", forState: .Normal)
+                    var btn = myTableView.viewWithTag(sender.tag) as! UIButton
+                    let image = UIImage(named: "stopPlaying")! as UIImage
+                    btn.setImage(image, forState: .Normal)
+                    btn.setTitleColor(UIColor.blackColor(), forState: .Normal)
                     isPlaying = true
+                    playingMusic = sender.tag
                 }catch let error as NSError {
                     //エラーをキャッチした場合
                     print(error)
