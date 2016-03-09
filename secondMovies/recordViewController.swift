@@ -27,6 +27,10 @@ class recordViewController: UIViewController {
     var cnt : Float = 0.00
     var secCnt : Float = 0.00
     
+    //何回目のカメラ起動か記録する変数
+    var recordingNum:Int = 1
+    var preparingLabel :UILabel!
+    
     
     
     //効果音の準備
@@ -37,12 +41,28 @@ class recordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    
+    func waitAtleast(time : NSTimeInterval, @noescape _ block: () -> Void) {
+        let start = NSDate()
+        block()
+        let elapsedTime = NSDate().timeIntervalSinceDate(start)
+        var waitTime = max(0.0, time - elapsedTime)
+        if waitTime > 0.0 {
+            NSThread.sleepForTimeInterval(waitTime)
+        }
+    }
+    
+    //var secondSetup = false
+    override func viewWillAppear(animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
         //不要なファイルの削除
         //shareView.deleteFiles()
         
         var myDefault = NSUserDefaults.standardUserDefaults()
         cnt = myDefault.floatForKey("defaultCnt")
-
+        
         
         //ナビゲーションの再表示
         //navigationController?.setNavigationBarHidden(false, animated: true)
@@ -53,33 +73,83 @@ class recordViewController: UIViewController {
         videoLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
         self.view.layer.addSublayer(videoLayer)
         //self.view.sendSubviewToBack(videoLayer)
+        videoLayer.zPosition = -50
         
+        
+        //self.cameraEngine.isSuccess == false
         //ローディングを表示しつつカメラ起動
-        SVProgressHUD.showWithStatus("カメラ準備中")
-        dispatch_async_global {
-            //バックグラウンドスレッド
-            //時間のかかる処理
-            self.waitAtleast(5.0) {
-                self.cameraEngine.startup()
-            }
-            //メインスレッド
-            self.dispatch_async_main {
-                
-                if (self.cameraEngine.isSuccess == true) { // 呼び出し結果の確認
-                    SVProgressHUD.showSuccessWithStatus("(`･ω･´)ｼｬｷｰﾝ!")
-                    // 成功時の処理を行う(APIのレスポンスを利用して描画処理など)
-                } else {
-                    SVProgressHUD.showErrorWithStatus("失敗!")
-                    // エラーハンドリング
+        
+        //self.view.bringSubviewToFront(SVProgressHUD)
+        //SVProgressHUD.popActivity()
+        
+        var myAppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
+        
+        if myAppDelegate.recordingNum == 1 {
+            SVProgressHUD.showWithStatus("カメラ準備中")
+            dispatch_async_global {
+                //バックグラウンドスレッド
+                //時間のかかる処理
+                self.waitAtleast(5.0) {
+                    self.cameraEngine.startup()
+                    print("DidLoadのバックでカメラ起動中")
                 }
+                //メインスレッド
+                self.dispatch_async_main {
+                    
+                    if (self.cameraEngine.isSuccess == true) { // 呼び出し結果の確認
+                        //SVProgressHUD.popActivity()
+                        SVProgressHUD.showSuccessWithStatus("(`･ω･´)ｼｬｷｰﾝ!")
+                        // 成功時の処理を行う(APIのレスポンスを利用して描画処理など)
+                        //ボタンの配置
+                        self.setupButton()
+                        //var myAppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                        myAppDelegate.recordingNum++
+                        print("レコーディングナンバーは\(myAppDelegate.recordingNum)")
+                        //self.preparingLabel.hidden = true
+                        
+                    } else {
+                        SVProgressHUD.showErrorWithStatus("失敗!")
+                        // エラーハンドリング
+                    }
+                }
+                
             }
-            
+        }else{
+            //SVProgressHUD.showWithStatus("カメラ準備中")
+            self.setupPreparingLabel()
+            print("準備中ラベル作成")
+
+            dispatch_async_global {
+                //バックグラウンドスレッド
+                //時間のかかる処理
+                self.waitAtleast(5.0) {
+                    self.cameraEngine.startup()
+                    print("DidLoadのバックでカメラ起動中")
+                }
+                //メインスレッド
+                self.dispatch_async_main {
+                    
+                    if (self.cameraEngine.isSuccess == true) { // 呼び出し結果の確認
+                        //SVProgressHUD.popActivity()
+                        //SVProgressHUD.showSuccessWithStatus("(`･ω･´)ｼｬｷｰﾝ!")
+                        // 成功時の処理を行う(APIのレスポンスを利用して描画処理など)
+                        //ボタンの配置
+                        self.setupButton()
+                        self.preparingLabel.hidden = true
+                        
+                    } else {
+                        SVProgressHUD.showErrorWithStatus("失敗!")
+                        // エラーハンドリング
+                    }
+                }
+                
+            }
+
         }
         
         
         
-        //ボタンの配置
-        self.setupButton()
         
         //タイマー配置
         self.setupTimerLabel()
@@ -87,26 +157,8 @@ class recordViewController: UIViewController {
         //プログレス設置
         self.setupSlider()
         
-    }
-    
-    
-    func waitAtleast(time : NSTimeInterval, @noescape _ block: () -> Void) {
-        let start = NSDate()
-        block()
-        let elapsedTime = NSDate().timeIntervalSinceDate(start)
-        let waitTime = max(0.0, time - elapsedTime)
-        if waitTime > 0.0 {
-            NSThread.sleepForTimeInterval(waitTime)
-        }
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        
 
-//        var myDefault = NSUserDefaults.standardUserDefaults()
-//        cnt = myDefault.floatForKey("defaultCnt")
-//        self.secCnt = cnt / 100
-//        timerLabel.text = "\(String(secCnt))/30秒"
     }
     
     //ローディング用便利関数
@@ -120,13 +172,29 @@ class recordViewController: UIViewController {
     
     func soundPlay() {
         do {
-                //動作部分
-                musicPlayer = try AVAudioPlayer(contentsOfURL: music_data)
-                musicPlayer.play()
+        //動作部分
+        musicPlayer = try AVAudioPlayer(contentsOfURL: music_data)
+        musicPlayer.play()
         }catch let error as NSError {
             //エラーをキャッチした場合
             print(error)
         }
+    }
+    
+    func setupPreparingLabel(){
+        self.preparingLabel.frame = CGRectMake(0,0,500,200)
+        self.preparingLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.bounds.height/2)
+        self.preparingLabel.backgroundColor = UIColor(red: 1/255, green: 1/255, blue: 1/255, alpha: 0.5)
+        self.preparingLabel.textColor = UIColor(red: 245/255, green: 108/255, blue: 102/255, alpha: 1)
+        self.preparingLabel.text = "カメラ起動中..."
+        self.preparingLabel.font = UIFont.systemFontOfSize(25)
+        self.preparingLabel.shadowColor = UIColor.blueColor()
+        self.preparingLabel.textAlignment = NSTextAlignment.Center
+        self.preparingLabel.layer.masksToBounds = true
+        self.preparingLabel.layer.cornerRadius = 5
+        
+        // Viewにラベルを追加
+        self.view.addSubview(preparingLabel)
     }
     
     func setupButton(){
@@ -316,7 +384,7 @@ class recordViewController: UIViewController {
     //timerカウント関数
     func update() {
         //３０秒制限の場合は3001、一時的に601に設定
-        if cnt == 1001 {
+        if cnt == 601 {
             //３０秒到達時に自動的に次へ飛ばす
             if self.cameraEngine.isCapturing {
                 self.cameraEngine.stop()
