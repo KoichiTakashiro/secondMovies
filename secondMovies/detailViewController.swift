@@ -17,6 +17,7 @@ class detailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         detailText.text = recievedSerectedDetail
+        self.automaticallyAdjustsScrollViewInsets = false
         
     }
     

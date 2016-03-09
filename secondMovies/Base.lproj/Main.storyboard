@@ -85,7 +85,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M0p-Be-dNQ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M0p-Be-dNQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -108,6 +108,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="M0p-Be-dNQ" secondAttribute="trailing" id="3pj-0p-VLg"/>
+                            <constraint firstItem="M0p-Be-dNQ" firstAttribute="top" secondItem="Zc2-Kf-8Vb" secondAttribute="top" id="mfy-Zu-VXY"/>
+                            <constraint firstItem="M0p-Be-dNQ" firstAttribute="leading" secondItem="Zc2-Kf-8Vb" secondAttribute="leading" id="nuh-ax-Avf"/>
+                            <constraint firstItem="YVR-JV-dXW" firstAttribute="top" secondItem="M0p-Be-dNQ" secondAttribute="bottom" id="vFh-CB-9pj"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ghQ-0S-fgd"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -128,15 +134,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="P7g-AJ-eYb">
-                                <rect key="frame" x="67" y="165" width="240" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="P7g-AJ-eYb">
+                                <rect key="frame" x="20" y="74" width="335" height="331"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="P7g-AJ-eYb" firstAttribute="leading" secondItem="mvT-eR-Gc2" secondAttribute="leading" constant="20" id="5NM-as-sV6"/>
+                            <constraint firstItem="y5B-QZ-nnk" firstAttribute="top" secondItem="P7g-AJ-eYb" secondAttribute="bottom" constant="262" id="JWr-wL-Jw7"/>
+                            <constraint firstItem="P7g-AJ-eYb" firstAttribute="top" secondItem="fRT-IO-NYH" secondAttribute="bottom" constant="10" id="j42-9Y-ocM"/>
+                            <constraint firstAttribute="trailing" secondItem="P7g-AJ-eYb" secondAttribute="trailing" constant="20" id="skB-6Z-Hka"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wso-3j-9dp"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
