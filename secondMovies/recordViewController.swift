@@ -182,13 +182,14 @@ class recordViewController: UIViewController {
     }
     
     func setupPreparingLabel(){
-        self.preparingLabel.frame = CGRectMake(0,0,500,200)
+        //self.preparingLabel.frame = CGRectMake(0,0,500,200)←これはダメ！！
+        self.preparingLabel = UILabel(frame: CGRectMake(0,0,500,200))
         self.preparingLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.bounds.height/2)
         self.preparingLabel.backgroundColor = UIColor(red: 1/255, green: 1/255, blue: 1/255, alpha: 0.5)
         self.preparingLabel.textColor = UIColor(red: 245/255, green: 108/255, blue: 102/255, alpha: 1)
         self.preparingLabel.text = "カメラ起動中..."
         self.preparingLabel.font = UIFont.systemFontOfSize(25)
-        self.preparingLabel.shadowColor = UIColor.blueColor()
+        //self.preparingLabel.shadowColor = UIColor.blueColor()
         self.preparingLabel.textAlignment = NSTextAlignment.Center
         self.preparingLabel.layer.masksToBounds = true
         self.preparingLabel.layer.cornerRadius = 5
