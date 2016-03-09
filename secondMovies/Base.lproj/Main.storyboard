@@ -223,7 +223,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x8C-ST-vm7">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x8C-ST-vm7">
                                 <rect key="frame" x="16" y="81" width="349" height="396"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -302,7 +302,9 @@
                             <constraint firstItem="LlF-JV-kyo" firstAttribute="centerX" secondItem="Ecs-RH-Rrj" secondAttribute="centerX" id="JzD-r7-JeL"/>
                             <constraint firstItem="Ei3-DE-L7h" firstAttribute="top" secondItem="LlF-JV-kyo" secondAttribute="bottom" constant="10" id="Pic-5r-nv1"/>
                             <constraint firstItem="sLA-R5-BcI" firstAttribute="top" secondItem="G6Z-3m-wxK" secondAttribute="bottom" constant="20" id="TZM-Kp-PWW"/>
+                            <constraint firstAttribute="trailing" secondItem="x8C-ST-vm7" secondAttribute="trailing" constant="10" id="WUh-kn-f6F"/>
                             <constraint firstItem="LlF-JV-kyo" firstAttribute="top" secondItem="E1P-Nc-5P6" secondAttribute="bottom" constant="10" id="WXn-7d-Ff4"/>
+                            <constraint firstItem="x8C-ST-vm7" firstAttribute="leading" secondItem="Ecs-RH-Rrj" secondAttribute="leading" constant="10" id="jeS-X1-gj4"/>
                             <constraint firstAttribute="trailing" secondItem="E1P-Nc-5P6" secondAttribute="trailing" constant="15" id="pkF-qE-zBi"/>
                             <constraint firstItem="x8C-ST-vm7" firstAttribute="centerX" secondItem="Ecs-RH-Rrj" secondAttribute="centerX" id="roC-PU-KoM"/>
                             <constraint firstItem="sLA-R5-BcI" firstAttribute="centerX" secondItem="Ecs-RH-Rrj" secondAttribute="centerX" id="zZC-3B-LH9"/>
