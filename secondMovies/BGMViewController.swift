@@ -34,7 +34,6 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     //BGMを追加せずに動画を保存
@@ -51,9 +50,6 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         let assetsLib = ALAssetsLibrary()
         let filePathUrl:NSURL = cameraEngine.filePathUrl()
         print(filePathUrl)
-        
-        //assetsLib.videoAtPathIsCompatibleWithSavedPhotosAlbum(savePathUrl)
-        //print("videoAtPathIsCompatibleWithSavedPhotosAlbum発動！！")
         
         assetsLib.writeVideoAtPathToSavedPhotosAlbum(filePathUrl, completionBlock: {
             (nsurl, error) -> Void in
@@ -102,7 +98,6 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         return nil;
     }
-    
     
     //表示するセルの中身
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -201,10 +196,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         }
             
     }
-//    func bgmPlay(musicName:String) {
-//
-//    }
-
+    
     @IBAction func addMusicBtnTap(sender: UIButton) {
         var audioURL:NSURL
         var moviePathUrl:NSURL
@@ -215,7 +207,6 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         audioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(musicName, ofType: "mp3")!)
         let movieFilePath = cameraEngine.filePath()
         moviePathUrl = cameraEngine.filePathUrl()
-        //ここまで戻そう
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let documentsDirectory = paths[0] as String
         let filePath : String = "\(documentsDirectory)/videoWithBGM\(cameraEngine.fileIndex).mp4"
@@ -234,10 +225,6 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         print("ファイルマージしたつもり")
         self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
         print("タイマー呼び出したはず")
-        
-        //        var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "shareViewController" )
-        //        self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
-        
     }
     
     func deleteFiles() {
@@ -305,8 +292,6 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         assetExport.outputURL = savePathUrl
         
         print(savePathUrl)
-        //self.tmpMovieURL = savePathUrl
-///////ここではBGM追加したデータが残っている
         assetExport.shouldOptimizeForNetworkUse = true
         assetExport.exportAsynchronouslyWithCompletionHandler({
             switch assetExport.status{
@@ -322,30 +307,10 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
                     Logger.log("Transfer video to library finished.")
                     print("BGMありの特定のビデオをカメラロールに保存")
                     self.deleteFiles()
-                    
-//                    //保存済みデータの削除
-//                    let manager = NSFileManager()
-//                    
-//                    let movieFilePath:String = String(moviePathUrl)
-//                    let saveFilePath : String = String(savePathUrl)
-//                    if movieFilePath != "" && saveFilePath != "" {
-//                        do {
-//                            try manager.removeItemAtPath(movieFilePath)
-//                            try manager.removeItemAtPath(saveFilePath)
-//                            print("documents内のファイル削除")
-                    
-//
-//                            
-//                        } catch {
-//                            print("error")
-//                        }
-//                    }
-//                    
                 })
                 
             }
-            //self.performSegueWithIdentifier("previewSegue", sender: self)
-///////ここでデータ消えている
+
         print("ファイルマージ最後までいった")
         print("\(self.cameraEngine.fileIndex)")
         })
@@ -387,15 +352,5 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
             cnt++
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

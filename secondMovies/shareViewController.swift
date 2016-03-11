@@ -39,35 +39,7 @@ class shareViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func saveBtnTap(sender: UIButton) {
-//        let assetsLib = ALAssetsLibrary()
-//        
-//        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-//        let documentsDirectory = paths[0] as String
-//        filePath = "\(documentsDirectory)/videoWithBGM\(cameraEngine.fileIndex).mp4"
-//        let fileURL : NSURL = NSURL(fileURLWithPath: filePath)
-//        let savePathUrl:NSURL = NSURL(fileURLWithPath: filePath)
-//        print(savePathUrl)
-//        
-//        //assetsLib.videoAtPathIsCompatibleWithSavedPhotosAlbum(savePathUrl)
-//        //print("videoAtPathIsCompatibleWithSavedPhotosAlbum発動！！")
-//        
-//        assetsLib.writeVideoAtPathToSavedPhotosAlbum(savePathUrl, completionBlock: {
-//            (nsurl, error) -> Void in
-//            Logger.log("Transfer video to library finished.")
-//            //self.cameraEngine.fileIndex++
-//            print("ファイルインデックスは\(self.cameraEngine.fileIndex)")
-//            print("カメラロールに保存")
-//            //self.deleteFiles()
-//        })
-//        
-        
-    }
-    
-        
     
     @IBAction func twitterBtnTap(sender: UIButton) {
         // SLComposeViewControllerのインスタンス化.
@@ -99,14 +71,4 @@ class shareViewController: UIViewController {
         self.presentViewController(myComposeView, animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

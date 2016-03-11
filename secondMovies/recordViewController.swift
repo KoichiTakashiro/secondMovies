@@ -15,7 +15,6 @@ class recordViewController: UIViewController {
     var recordLabel: UILabel!
     var isRecording = false
     let cameraEngine = CameraEngine()
-    //let shareView = shareViewController()
 
     //カメラボタンの作成
     var cameraBtn, finishBtn: UIButton!
@@ -57,15 +56,8 @@ class recordViewController: UIViewController {
     //var secondSetup = false
     override func viewWillAppear(animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
-        //不要なファイルの削除
-        //shareView.deleteFiles()
-        
-        var myDefault = NSUserDefaults.standardUserDefaults()
+         var myDefault = NSUserDefaults.standardUserDefaults()
         cnt = myDefault.floatForKey("defaultCnt")
-        
-        
-        //ナビゲーションの再表示
-        //navigationController?.setNavigationBarHidden(false, animated: true)
         
         let videoLayer : AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer.init(session:self.cameraEngine.captureSession)
         //videoLayer.frame = CGRectMake(100, 100, 300, 300)
@@ -74,13 +66,6 @@ class recordViewController: UIViewController {
         self.view.layer.addSublayer(videoLayer)
         //self.view.sendSubviewToBack(videoLayer)
         videoLayer.zPosition = -50
-        
-        
-        //self.cameraEngine.isSuccess == false
-        //ローディングを表示しつつカメラ起動
-        
-        //self.view.bringSubviewToFront(SVProgressHUD)
-        //SVProgressHUD.popActivity()
         
         var myAppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
@@ -123,7 +108,7 @@ class recordViewController: UIViewController {
             dispatch_async_global {
                 //バックグラウンドスレッド
                 //時間のかかる処理
-                self.waitAtleast(5.0) {
+                self.waitAtleast(6.0) {
                     self.cameraEngine.startup()
                     print("DidLoadのバックでカメラ起動中")
                 }
