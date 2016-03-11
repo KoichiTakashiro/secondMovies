@@ -287,7 +287,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
             
         }
         
-        var assetExport: AVAssetExportSession = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetMediumQuality)!
+        var assetExport: AVAssetExportSession = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetHighestQuality)!
         assetExport.outputFileType = AVFileTypeQuickTimeMovie
         assetExport.outputURL = savePathUrl
         
