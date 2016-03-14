@@ -56,7 +56,6 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
             Logger.log("Transfer video to library finished.")
             print("ファイルインデックスは\(self.cameraEngine.fileIndex)")
             print("BGMなしでカメラロールに保存")
-            //self.deleteFiles()
             let movieFilePath = self.cameraEngine.filePath()
             let manager = NSFileManager()
             if movieFilePath != "" {
@@ -235,16 +234,26 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
 
         let manager = NSFileManager()
         
-        if movieFilePath != "" && filePath != "" {
+        if movieFilePath != "" {
             do {
                 try manager.removeItemAtPath(movieFilePath)
-                try manager.removeItemAtPath(filePath)
-                print("documents内のファイル削除")
+                print("documents内のBGMなしファイル削除")
                 
             } catch let error as NSError {
-                print("error")
+                print(error)
             }
         }
+        
+        if filePath != "" {
+            do {
+                try manager.removeItemAtPath(filePath)
+                print("documents内のBGM付きファイル削除")
+                
+            } catch let error as NSError {
+                print(error)
+            }
+        }
+
 
     }
     

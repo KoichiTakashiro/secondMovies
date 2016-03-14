@@ -21,46 +21,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "secondMovies/checkViewController.swift"
-            timestampString = "478588184.719072"
+            filePath = "secondMovies/BGMViewController.swift"
+            timestampString = "479630481.577955"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "secondMovies.checkViewController.viewDidLoad (secondMovies.checkViewController)() -&gt; ()"
-                  moduleName = "secondMovies"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/TakashiroKoichi/Desktop/20160125_iOS/secondMovies/secondMovies/checkViewController.swift"
-                  timestampString = "479371781.035993"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "81"
-                  endingLineNumber = "81"
-                  offsetFromSymbolStart = "3888">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "secondMovies.checkViewController.(viewDidLoad (secondMovies.checkViewController) -&gt; () -&gt; ()).(closure #1)"
-                  moduleName = "secondMovies"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/TakashiroKoichi/Desktop/20160125_iOS/secondMovies/secondMovies/checkViewController.swift"
-                  timestampString = "479371781.036752"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
-                  offsetFromSymbolStart = "60">
-               </Location>
-            </Locations>
+            startingLineNumber = "508"
+            endingLineNumber = "508">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -70,25 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "secondMovies/BGMViewController.swift"
-            timestampString = "479368791.560408"
+            timestampString = "479630481.577955"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "499"
-            endingLineNumber = "499">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "secondMovies/BGMViewController.swift"
-            timestampString = "479368791.560408"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "505"
-            endingLineNumber = "505">
+            startingLineNumber = "514"
+            endingLineNumber = "514">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

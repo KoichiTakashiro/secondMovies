@@ -11,12 +11,15 @@ import UIKit
 class ViewController: UIViewController {
     
     let recordController = recordViewController()
+    let BGMController = BGMViewController()
     
     //let cameraEngine = CameraEngine()
 
     @IBOutlet weak var othersBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        BGMController.deleteFiles()
+        print("BGMコントローラーのファイル削除呼び出し")
      }
     
     @IBAction func backWithSegue(let segue: UIStoryboardSegue) {

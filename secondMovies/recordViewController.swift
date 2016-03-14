@@ -132,18 +132,11 @@ class recordViewController: UIViewController {
             }
 
         }
-        
-        
-        
-        
         //タイマー配置
         self.setupTimerLabel()
         
         //プログレス設置
         self.setupSlider()
-        
-        
-
     }
     
     //ローディング用便利関数
@@ -174,7 +167,6 @@ class recordViewController: UIViewController {
         self.preparingLabel.textColor = UIColor(red: 245/255, green: 108/255, blue: 102/255, alpha: 1)
         self.preparingLabel.text = "カメラ起動中..."
         self.preparingLabel.font = UIFont.systemFontOfSize(25)
-        //self.preparingLabel.shadowColor = UIColor.blueColor()
         self.preparingLabel.textAlignment = NSTextAlignment.Center
         self.preparingLabel.layer.masksToBounds = true
         self.preparingLabel.layer.cornerRadius = 5
@@ -187,10 +179,7 @@ class recordViewController: UIViewController {
         
         //カメラ撮影ボタン
         self.cameraBtn = UIButton(frame: CGRectMake(0,0,70,70))
-        //self.cameraBtn.backgroundColor = UIColor.greenColor()
         self.cameraBtn.layer.masksToBounds = true
-        //self.cameraBtn.setTitle("Go", forState: .Normal)
-        //self.cameraBtn.layer.cornerRadius = 15.0
         self.cameraBtn.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-50)
         self.cameraBtn.addTarget(self, action: "cameraBtnTap:", forControlEvents: .TouchUpInside)
         let image = UIImage(named: "record")! as UIImage
@@ -201,15 +190,12 @@ class recordViewController: UIViewController {
         self.finishBtn.backgroundColor = UIColor.blueColor()
         self.finishBtn.layer.masksToBounds = true
         self.finishBtn.setTitle("Finish", forState: .Normal)
-        //self.finishBtn.layer.cornerRadius = 0.0
         self.finishBtn.layer.position = CGPoint(x: self.view.bounds.width/4, y:self.view.bounds.height-30)
         self.finishBtn.addTarget(self, action: "finishBtnTap:", forControlEvents: .TouchUpInside)
         
         
         //Viewにボタンを追加
         self.view.addSubview(self.cameraBtn)
-        //フィニッシュボタンを削除→制限時間まで取り切った場合のみつぎのページにいける
-        //self.view.addSubview(self.finishBtn)
     }
     
     func setupRecordLabel() {
@@ -245,11 +231,8 @@ class recordViewController: UIViewController {
     
     var myGreenSlider = UISlider(frame: CGRectMake(0, 0, 0, 0))
     func setupSlider() {
-        // Sliderを作成する.
         //スライダーの設置
         myGreenSlider = UISlider(frame: CGRectMake(-10, self.view.bounds.height-120, self.view.bounds.width+10, 30))
-        //myGreenSlider.layer.position = CGPointMake(-10, self.view.bounds.height-100)
-        //myGreenSlider.backgroundColor = UIColor.whiteColor()
         myGreenSlider.layer.cornerRadius = 0.0
         myGreenSlider.layer.shadowOpacity = 0.5
         myGreenSlider.layer.masksToBounds = false
@@ -269,9 +252,6 @@ class recordViewController: UIViewController {
         
         let image = UIImage(named: "slider")! as UIImage
         myGreenSlider.setThumbImage(image, forState: .Normal)
-        
-        //myGreenSlider.addTarget(self, action: "onChangeValueMySlider:", forControlEvents: UIControlEvents.ValueChanged)
-        
         self.view.addSubview(myGreenSlider)
         
         self.view.backgroundColor = UIColor(red: 0, green: CGFloat(myGreenSlider.value), blue: 0, alpha: 1)
@@ -304,14 +284,10 @@ class recordViewController: UIViewController {
                 if self.cameraEngine.isPaused {
                     //一時停止後録画再開中がここの処理
                     self.cameraEngine.resume()
-                    //self.cameraBtn.setTitle("一時停止", forState: .Normal)
-                    //self.cameraBtn.backgroundColor = UIColor.redColor()
                     //ユーザーデフォルトのカウント数呼び出し
                     var myDefault = NSUserDefaults.standardUserDefaults()
                     cnt = myDefault.floatForKey("defaultCnt")
                     timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
-                    //let image = UIImage(named: "stop")! as UIImage
-                    //self.cameraBtn.setImage(image, forState: .Normal)
                     cameraBtn.enabled = false
                     setupRecordLabel()
                     print("2")
@@ -319,8 +295,6 @@ class recordViewController: UIViewController {
                 }else{
                     //一時停止した時にここの処理
                     self.cameraEngine.pause()
-//                    self.cameraBtn.setTitle("restart", forState: .Normal)
-//                    self.cameraBtn.backgroundColor = UIColor.greenColor()
                     cnt = cnt + 1
                     //ユーザーデフォルトにカウント数書き込み
                     var myDefault = NSUserDefaults.standardUserDefaults()
@@ -351,26 +325,16 @@ class recordViewController: UIViewController {
             myDefault.synchronize()
             timer.invalidate()
             var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "BGMViewController" )
-//            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "checkViewController" )
             self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
 
         }
-        
-        // 遷移するViewを定義する.
-        //let checkViewController: UIViewController = checkViewController()
-        
-        // アニメーションを設定する.
-        //mySecondViewController.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
-        
-        // Viewの移動する.
-        //self.presentViewController(mySecondViewController, animated: true, completion: nil)
     }
     
     
     //timerカウント関数
     func update() {
         //３０秒制限の場合は3001、一時的に601に設定
-        if cnt == 3001 {
+        if cnt == 401 {
             //３０秒到達時に自動的に次へ飛ばす
             if self.cameraEngine.isCapturing {
                 self.cameraEngine.stop()
@@ -392,16 +356,12 @@ class recordViewController: UIViewController {
             if cnt % 200 == 1 && cnt > 1 {
                 //自動的に一時停止
                 self.cameraEngine.pause()
-//                self.cameraBtn.setTitle("restart", forState: .Normal)
-//                self.cameraBtn.backgroundColor = UIColor.greenColor()
                 cnt = cnt + 1
                 //ユーザーデフォルトにカウント数書き込み
                 var myDefault = NSUserDefaults.standardUserDefaults()
                 myDefault.setFloat(cnt, forKey: "defaultCnt")
                 myDefault.synchronize()
                 timer.invalidate()
-                //let image = UIImage(named: "record")! as UIImage
-                //self.cameraBtn.setImage(image, forState: .Normal)
                 cameraBtn.enabled = true
                 self.recordLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
                 self.recordLabel.textColor = UIColor.whiteColor()
