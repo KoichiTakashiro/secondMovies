@@ -33,6 +33,8 @@ class ViewController: UIViewController {
         var myDefault = NSUserDefaults.standardUserDefaults()
         myDefault.setFloat(recordController.cnt, forKey: "defaultCnt")
         myDefault.synchronize()
+        BGMController.deleteFiles()
+        print("BGMコントローラーのファイル削除呼び出し")
     }
 
     override func didReceiveMemoryWarning() {
