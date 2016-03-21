@@ -85,6 +85,7 @@ class BGMViewController: UIViewController,UITableViewDataSource, UITableViewDele
         //["name":"newspace", "fileName":"newspace"],落ちる
         ["name":"IT企業CM風", "fileName":"hero"],
         //["name":"wild", "fileName":"wild"]落ちる
+        ["name":"へんてこリコーダー", "fileName":"recorder"]
     ]
     
     //テーブルビュー関連

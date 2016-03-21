@@ -39,6 +39,7 @@
 		C17F402E1C854488006897F7 /* BGMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17F402D1C854488006897F7 /* BGMViewController.swift */; };
 		C17F40301C856CBC006897F7 /* drumroll.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C17F402F1C856CBB006897F7 /* drumroll.mp3 */; };
 		C1A2CA041C88823D00155FD1 /* pinch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C1A2CA031C88823D00155FD1 /* pinch.mp3 */; };
+		C1C62A7D1CA0375500924484 /* recorder.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C1C62A7C1CA0375500924484 /* recorder.mp3 */; };
 		C7FE64E0C1F31E3E5F36803B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67125D915CC6B0E40A2C2514 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		C17F402D1C854488006897F7 /* BGMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGMViewController.swift; sourceTree = "<group>"; };
 		C17F402F1C856CBB006897F7 /* drumroll.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = drumroll.mp3; sourceTree = "<group>"; };
 		C1A2CA031C88823D00155FD1 /* pinch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pinch.mp3; sourceTree = "<group>"; };
+		C1C62A7C1CA0375500924484 /* recorder.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = recorder.mp3; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 				C17F40261C830F42006897F7 /* cameraSound.mp3 */,
 				C1A2CA031C88823D00155FD1 /* pinch.mp3 */,
 				C16D90791C8EC0A6009150A2 /* goodmorningsky short.mp3 */,
+				C1C62A7C1CA0375500924484 /* recorder.mp3 */,
 				C16D906B1C8EBE73009150A2 /* hero.mp3 */,
 				C16D906C1C8EBE73009150A2 /* idol.mp3 */,
 				C16D906D1C8EBE73009150A2 /* jazz2.mp3 */,
@@ -353,6 +356,7 @@
 				C16D90781C8EBE73009150A2 /* wind.mp3 in Resources */,
 				C17F40271C830F42006897F7 /* cameraSound.mp3 in Resources */,
 				C16D90771C8EBE73009150A2 /* positive.mp3 in Resources */,
+				C1C62A7D1CA0375500924484 /* recorder.mp3 in Resources */,
 				C17F40301C856CBC006897F7 /* drumroll.mp3 in Resources */,
 				C16D90761C8EBE73009150A2 /* newplace.mp3 in Resources */,
 				C16D90751C8EBE73009150A2 /* natural.mp3 in Resources */,
